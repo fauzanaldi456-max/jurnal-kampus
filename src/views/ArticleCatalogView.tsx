@@ -90,10 +90,7 @@ export const ArticleCatalogView: React.FC<ArticleCatalogViewProps> = ({
       <section className="bg-white border-b border-slate-200/80 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-              <span>REPOSITORI DIGITAL KONSORSIUM</span>
-            </div>
-            <h1 className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-4">
+            <h1 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-4">
               Katalog Naskah Ilmiah & Terbitan Terbuka
             </h1>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -186,7 +183,7 @@ export const ArticleCatalogView: React.FC<ArticleCatalogViewProps> = ({
 
                 <h2
                   onClick={() => onSelectArticle(art)}
-                  className="font-['Plus_Jakarta_Sans'] text-lg sm:text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer leading-snug"
+                  className="font-['Space_Grotesk'] text-lg sm:text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer leading-snug"
                 >
                   {art.title}
                 </h2>

@@ -45,7 +45,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #0f172a;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
@@ -55,7 +55,25 @@
   body {
     background-color: #ffffff;
     color: #0f172a;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Universal Space Grotesk font application */
+  *, *::before, *::after {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+
+  .material-symbols-outlined,
+  [class*="material-symbols"] {
+    font-family: 'Material Symbols Outlined' !important;
+  }
+
+  .font-mono,
+  .font-\[\'JetBrains_Mono\'\],
+  .font-code-mono,
+  code,
+  pre {
+    font-family: 'JetBrains Mono', monospace !important;
   }
 
   ::selection {
@@ -64,9 +82,9 @@
   }
 }
 
-/* Typography tokens matching reference */
+/* Typography tokens using Space Grotesk */
 .font-headline-xl {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 2.25rem;
   line-height: 2.75rem;
   font-weight: 700;
@@ -81,7 +99,7 @@
 }
 
 .font-headline-lg {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 700;
@@ -89,7 +107,7 @@
 }
 
 .font-headline-md {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.375rem;
   line-height: 1.875rem;
   font-weight: 600;
@@ -97,7 +115,7 @@
 }
 
 .font-headline-sm {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
   line-height: 1.5rem;
   font-weight: 600;
@@ -105,26 +123,26 @@
 }
 
 .font-body-lg {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
   line-height: 1.875rem;
   letter-spacing: -0.005em;
 }
 
 .font-body-md {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9375rem;
   line-height: 1.5rem;
 }
 
 .font-body-sm {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8125rem;
   line-height: 1.25rem;
 }
 
 .font-label-md {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -132,7 +150,7 @@
 }
 
 .font-label-sm {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 600;
@@ -140,7 +158,7 @@
 }
 
 .font-code-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.75rem;
   line-height: 1.125rem;
 }

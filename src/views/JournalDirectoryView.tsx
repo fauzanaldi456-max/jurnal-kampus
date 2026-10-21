@@ -75,10 +75,7 @@ export const JournalDirectoryView: React.FC<JournalDirectoryViewProps> = ({
       <section className="bg-white border-b border-slate-200/80 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-              <span>DIREKTORI RESMI KONSORSIUM</span>
-            </div>
-            <h1 className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-4">
+            <h1 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-4">
               Koleksi 24 Jurnal Ilmiah Terakreditasi Nasional
             </h1>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -187,7 +184,7 @@ export const JournalDirectoryView: React.FC<JournalDirectoryViewProps> = ({
                   </div>
                 </div>
 
-                <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2.5">
+                <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2.5">
                   {journal.title}
                 </h3>
 

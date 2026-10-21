@@ -30,8 +30,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
               <span className="material-symbols-outlined text-[22px]">login</span>
             </div>
-            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
-              Masuk ke Portal OJS Jurnexa
+            <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
+              Masuk ke Portal OJS Cendraloka
             </h3>
           </div>
           <button
@@ -101,8 +101,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   role === 'author'
                     ? 'penulis@universitas.ac.id'
                     : role === 'reviewer'
-                    ? 'reviewer@jurnexa.ac.id'
-                    : 'editor@jurnexa.ac.id'
+                    ? 'reviewer@cendraloka.ac.id'
+                    : 'editor@cendraloka.ac.id'
                 }
                 className="w-full p-3 rounded-2xl border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none font-medium"
               />

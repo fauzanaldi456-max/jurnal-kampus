@@ -25,7 +25,7 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({ isOpen, onClos
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const randomCode = `JURNEXA-SUB-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const randomCode = `CENDRALOKA-SUB-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
     setTrackingId(randomCode);
     setIsSubmitted(true);
   };
@@ -52,11 +52,11 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({ isOpen, onClos
               <span className="material-symbols-outlined text-[22px]">upload_file</span>
             </div>
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+              <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
                 Portal Pengajuan Naskah (OJS 3 Gateway)
               </h3>
               <p className="text-xs text-slate-500">
-                Konsorsium Publikasi Jurnexa — Standar Etika COPE & Double-Blind Review
+                Konsorsium Publikasi Cendraloka — Standar Etika COPE & Double-Blind Review
               </p>
             </div>
           </div>
@@ -414,11 +414,11 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({ isOpen, onClos
               <span className="material-symbols-outlined text-[36px]">task_alt</span>
             </div>
             <div className="space-y-1">
-              <h4 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+              <h4 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                 Pengajuan Naskah Berhasil Terkirim!
               </h4>
               <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-                Berkas naskah Anda telah terdaftar dalam sistem antrean editorial Jurnexa OJS Gateway untuk tahapan Desk Review (Hari ke 1–5).
+                Berkas naskah Anda telah terdaftar dalam sistem antrean editorial Cendraloka OJS Gateway untuk tahapan Desk Review (Hari ke 1–5).
               </p>
             </div>
 

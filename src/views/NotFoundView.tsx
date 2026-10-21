@@ -9,11 +9,7 @@ export const NotFoundView: React.FC = () => {
           <span className="material-symbols-outlined text-[32px]">find_in_page</span>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-['JetBrains_Mono'] text-xs font-semibold mb-4">
-          <span>ERROR 404 • NOT FOUND</span>
-        </div>
-
-        <h1 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+        <h1 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
           Halaman Tidak Ditemukan
         </h1>
 

@@ -31,7 +31,7 @@ export const WaiverModal: React.FC<WaiverModalProps> = ({ isOpen, onClose }) => 
             <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
               <span className="material-symbols-outlined text-[22px]">price_check</span>
             </div>
-            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+            <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
               Permohonan Keringanan Biaya (APC Waiver)
             </h3>
           </div>
@@ -50,7 +50,7 @@ export const WaiverModal: React.FC<WaiverModalProps> = ({ isOpen, onClose }) => 
             </div>
             <span className="font-bold text-base text-slate-900">Permohonan Waiver Berhasil Diajukan!</span>
             <p className="text-slate-500 max-w-xs leading-relaxed">
-              Tim Komite Pembiayaan Jurnexa akan memproses dalam 1-2 hari kerja sebelum penagihan naskah.
+              Tim Komite Pembiayaan Cendraloka akan memproses dalam 1-2 hari kerja sebelum penagihan naskah.
             </p>
           </div>
         ) : (

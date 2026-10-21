@@ -70,8 +70,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="material-symbols-outlined text-[20px]">auto_stories</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-['Plus_Jakarta_Sans'] text-lg font-bold tracking-tight text-slate-900 leading-none">
-                  JURNEXA
+                <span className="font-['Space_Grotesk'] text-lg font-bold tracking-tight text-slate-900 leading-none">
+                  CENDRALOKA
                 </span>
                 <span className="font-['JetBrains_Mono'] text-[10px] text-slate-500 leading-tight tracking-wider uppercase mt-0.5">
                   Scientific Publishing

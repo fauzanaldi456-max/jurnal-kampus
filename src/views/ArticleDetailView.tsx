@@ -81,7 +81,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
     setDownloading(true);
     setTimeout(() => {
       const blob = new Blob([
-        `%PDF-1.4\nJURNEXA SCIENTIFIC REPOSITORY\nArticle: ${article.title}\nAuthors: ${article.authors.map(a => a.name).join(', ')}\nDOI: https://doi.org/${article.doi}\nIndexed: SINTA 2 | DOAJ | Crossref\nChecksum SHA-256: ${article.sha256}`
+        `%PDF-1.4\nCENDRALOKA SCIENTIFIC REPOSITORY\nArticle: ${article.title}\nAuthors: ${article.authors.map(a => a.name).join(', ')}\nDOI: https://doi.org/${article.doi}\nIndexed: SINTA 2 | DOAJ | Crossref\nChecksum SHA-256: ${article.sha256}`
       ], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -143,7 +143,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
           </div>
 
           {/* Manuscript Title */}
-          <h1 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-[1.25] mb-3">
+          <h1 className="font-['Space_Grotesk'] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-[1.25] mb-3">
             {article.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-500 italic mb-6 font-serif">
@@ -358,7 +358,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                   <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
                     <BookOpen className="w-4 h-4" />
                   </div>
-                  <h2 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-slate-900">
+                  <h2 className="font-['Space_Grotesk'] text-lg font-bold text-slate-900">
                     {abstractLang === 'id' ? 'Abstrak Terstruktur' : 'Structured Abstract'}
                   </h2>
                 </div>
@@ -391,7 +391,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
               {/* Abstract Sections */}
               <div className="space-y-5 text-sm leading-relaxed text-slate-700">
                 <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100">
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Plus_Jakarta_Sans']">
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Space_Grotesk']">
                     {abstractLang === 'id' ? '1. Latar Belakang & Masalah' : '1. Background & Problem'}
                   </h3>
                   <p>
@@ -402,7 +402,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100">
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Plus_Jakarta_Sans']">
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Space_Grotesk']">
                     {abstractLang === 'id' ? '2. Metodologi Pendekatan' : '2. Methodology & Architecture'}
                   </h3>
                   <p>
@@ -413,7 +413,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100">
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Plus_Jakarta_Sans']">
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Space_Grotesk']">
                     {abstractLang === 'id' ? '3. Temuan Kunci & Metrik Kinerja' : '3. Key Findings & Performance'}
                   </h3>
                   <p>
@@ -424,7 +424,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100">
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Plus_Jakarta_Sans']">
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-1.5 font-['Space_Grotesk']">
                     {abstractLang === 'id' ? '4. Implikasi Lapang & Rekomendasi' : '4. Field Implications & Recommendations'}
                   </h3>
                   <p>
@@ -455,7 +455,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-8">
               {/* Section 1 */}
               <div>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
+                <h3 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
                     1
                   </span>
@@ -476,7 +476,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
               {/* Section 2: Methodology & System Architecture */}
               <div>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
+                <h3 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
                     2
                   </span>
@@ -540,7 +540,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
               {/* Section 3: Benchmark Results */}
               <div>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
+                <h3 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
                     3
                   </span>
@@ -644,7 +644,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
               {/* Section 4: Kesimpulan */}
               <div>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
+                <h3 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
                     4
                   </span>
@@ -697,7 +697,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
               {/* Section 7: References */}
               <div>
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <h3 className="font-['Space_Grotesk'] text-lg font-bold text-slate-900 flex items-center gap-2">
                     <Layers className="w-4 h-4 text-blue-600" />
                     Daftar Pustaka ({ARTICLE_REFERENCES.length})
                   </h3>
@@ -748,7 +748,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
               <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <Quote className="w-4 h-4 text-blue-600" />
-                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm">Sitasi Instan</h3>
+                  <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm">Sitasi Instan</h3>
                 </div>
                 <span className="text-[10px] text-slate-400 font-mono">Salin Cepat</span>
               </div>
@@ -826,7 +826,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                     {article.journalShort}
                   </div>
                   <div>
-                    <h4 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm leading-snug">
+                    <h4 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm leading-snug">
                       {article.journalName}
                     </h4>
                     <p className="text-[11px] text-slate-500 font-mono">e-ISSN: 2580-8737</p>
@@ -867,7 +867,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
             {/* Quick In-Page Table of Contents */}
             <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm mb-3.5 flex items-center gap-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm mb-3.5 flex items-center gap-2">
                 <Info className="w-4 h-4 text-blue-600" />
                 Navigasi Bagian Naskah
               </h3>
@@ -905,7 +905,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
             {/* Related Articles in this Issue */}
             <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm mb-3.5">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm mb-3.5">
                 Artikel Terkait dalam Edisi Ini
               </h3>
               <div className="space-y-3">
@@ -922,7 +922,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
                     <span className="text-[10px] font-bold text-blue-600 font-mono block mb-1">
                       {rel.journalShort} • {rel.volume}
                     </span>
-                    <h5 className="font-['Plus_Jakarta_Sans'] text-xs font-bold text-slate-800 group-hover:text-blue-600 line-clamp-2 leading-snug">
+                    <h5 className="font-['Space_Grotesk'] text-xs font-bold text-slate-800 group-hover:text-blue-600 line-clamp-2 leading-snug">
                       {rel.title}
                     </h5>
                     <p className="text-[11px] text-slate-500 mt-1 truncate">

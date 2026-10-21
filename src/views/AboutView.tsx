@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ShieldCheck,
   Award,
-  Users,
   BookOpen,
   Globe,
   Database,
@@ -35,17 +34,12 @@ export const AboutView: React.FC<AboutViewProps> = ({
       <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold text-blue-600 mb-6 shadow-xs">
-              <ShieldCheck className="w-4 h-4 text-blue-600" />
-              <span>MANIFES KONSORSIUM JURNEXA</span>
-            </div>
-
-            <h1 className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-6">
+            <h1 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2] mb-6">
               Membangun Ekosistem Publikasi Ilmiah Nusantara yang Adil, Transparan, dan Bereputasi Global
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
-              Jurnexa adalah konsorsium penerbitan akademis nirlaba yang mengintegrasikan tata kelola <strong className="text-slate-900">24 jurnal ilmiah nasional</strong> terakreditasi, infrastruktur Open Journal Systems (OJS 3.4), audit integritas berbasis standar COPE internasional, dan diseminasi riset berkualitas tinggi tanpa hambatan komersialisasi.
+              Cendraloka adalah konsorsium penerbitan akademis nirlaba yang mengintegrasikan tata kelola <strong className="text-slate-900">24 jurnal ilmiah nasional</strong> terakreditasi, infrastruktur Open Journal Systems (OJS 3.4), audit integritas berbasis standar COPE internasional, dan diseminasi riset berkualitas tinggi tanpa hambatan komersialisasi.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -77,12 +71,12 @@ export const AboutView: React.FC<AboutViewProps> = ({
                 <span>Piagam Pengesahan Konsorsium • SK No. 048/SK-KONSOR/JRNX/2023</span>
               </div>
               <blockquote className="text-base sm:text-xl font-medium text-slate-800 leading-relaxed italic mb-4 font-serif">
-                &ldquo;Publikasi ilmiah bukan komoditas monopoli komersial, melainkan amanat peradaban publik. Di Jurnexa, kami mendedikasikan infrastruktur independen agar para peneliti Indonesia dan kawasan ASEAN dapat mendiseminasikan kebaruan sains dengan ketat, terpercaya, dan terjangkau secara universal.&rdquo;
+                &ldquo;Publikasi ilmiah bukan komoditas monopoli komersial, melainkan amanat peradaban publik. Di Cendraloka, kami mendedikasikan infrastruktur independen agar para peneliti Indonesia dan kawasan ASEAN dapat mendiseminasikan kebaruan sains dengan ketat, terpercaya, dan terjangkau secara universal.&rdquo;
               </blockquote>
               <div className="flex items-center gap-4 pt-2">
                 <div>
-                  <h4 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm">Prof. Dr. Bambang Sudarmono, M.Sc., Ph.D.</h4>
-                  <p className="text-xs text-slate-500">Ketua Dewan Pembina Konsorsium Jurnexa • Guru Besar Rekayasa Komputasi</p>
+                  <h4 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm">Prof. Dr. Bambang Sudarmono, M.Sc., Ph.D.</h4>
+                  <p className="text-xs text-slate-500">Ketua Dewan Pembina Konsorsium Cendraloka • Guru Besar Rekayasa Komputasi</p>
                 </div>
               </div>
             </div>
@@ -118,11 +112,8 @@ export const AboutView: React.FC<AboutViewProps> = ({
       {/* 4 Core Pillars Bento Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-            <span>PRINSIP UTAMA</span>
-          </div>
-          <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
-            Empat Pilar Fundamental Tata Kelola Jurnexa
+          <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+            Empat Pilar Fundamental Tata Kelola Cendraloka
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
             Prinsip teguh yang menjadi pondasi setiap proses penerbitan naskah, penilaian sejawat, dan pengarsipan permanen.
@@ -136,7 +127,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-5">
                 <Globe className="w-6 h-6" />
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2">
                 Demokratisasi Open Access
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -151,7 +142,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center mb-5">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2">
                 Integritas & Etika COPE
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -166,7 +157,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <div className="w-12 h-12 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center mb-5">
                 <Lock className="w-6 h-6" />
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2">
                 Preservasi Abadi (Perpetual)
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -181,7 +172,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <div className="w-12 h-12 rounded-full bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-5">
                 <Database className="w-6 h-6" />
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2">
                 Interoperabilitas Metadata
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -197,11 +188,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mb-3">
-                <Users className="w-3.5 h-3.5" />
-                <span>TATA KELOLA & KEPEMIMPINAN REDAKSI</span>
-              </div>
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900">
+              <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Dewan Editor & Komite Integritas Konsorsium
               </h2>
             </div>
@@ -230,7 +217,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
                     </div>
                   </div>
 
-                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">
                     {member.name}
                   </h3>
                   <p className="text-xs font-semibold text-blue-600 mb-2">
@@ -274,10 +261,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
       {/* Partner Faculties & Research Centers */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-            <span>MITRA KONSORSIUM</span>
-          </div>
-          <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+          <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
             Fakultas & Pusat Riset Pendiri Konsorsium
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
@@ -299,7 +283,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
                   {faculty.cluster}
                 </span>
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2">
                 {faculty.name}
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -314,10 +298,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
       <section className="bg-slate-950 text-white py-16 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-[11px] font-mono font-semibold uppercase tracking-wider mb-2">
-              AUDIT MUTU & INTEGRITAS
-            </span>
-            <h3 className="text-sm font-semibold text-slate-300">
+            <h3 className="text-base font-bold text-white mb-1">
               Kepatuhan Standar Etika & Pengindeksan Internasional
             </h3>
           </div>
@@ -352,10 +333,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-                  <span>KANTOR SEKRETARIAT KONSORSIUM</span>
-                </div>
-                <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+                <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
                   Pusat Layanan Redaksi & Bantuan Peneliti
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -379,8 +357,8 @@ export const AboutView: React.FC<AboutViewProps> = ({
 
                 <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
                   <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                  <a href="mailto:sekretariat@jurnexa.or.id" className="text-blue-600 hover:underline font-mono">
-                    sekretariat@jurnexa.or.id
+                  <a href="mailto:sekretariat@cendraloka.or.id" className="text-blue-600 hover:underline font-mono">
+                    sekretariat@cendraloka.or.id
                   </a>
                 </div>
 
@@ -406,7 +384,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
               <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm relative group bg-slate-100">
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ-L6uE02bJZlU59jtOupITD98go2BDTXg6GsNsNzaS0lpSqiz1GblWKk2zTQdqRmGn54l2VL4z7yK183mwv-aGgeCiAAxLDD24W9cZw3u2vP7E2ZKYTVxiQGT6m3hTvuWPkoACa7iU3LvgpHw25S3MqwiTDivSaWTuJXqN6vaytxYsFwVYQq9kmVtDYMokmJXetL8vMf-rRXHxf90AgkXavTnIbcG2V2BjXUWAhS69QTVOEKB35WNbA"
-                  alt="Lokasi Sekretariat Jurnexa"
+                  alt="Lokasi Sekretariat Cendraloka"
                   className="w-full h-80 sm:h-96 object-cover group-hover:scale-102 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -415,7 +393,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full font-mono font-bold text-[10px] inline-block mb-2">
                       KAMPUS RISET TERPADU
                     </span>
-                    <p className="font-['Plus_Jakarta_Sans'] font-bold text-sm sm:text-base">Laboratorium & Pusat Data Konsorsium Jurnexa</p>
+                    <p className="font-['Space_Grotesk'] font-bold text-sm sm:text-base">Laboratorium & Pusat Data Konsorsium Cendraloka</p>
                     <p className="text-slate-300 text-[11px] mt-0.5">Terhubung dengan Jaringan Riset Indonesia (Inherent 10 Gbps)</p>
                   </div>
                 </div>

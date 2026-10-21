@@ -82,15 +82,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
       <section className="w-full px-4 sm:px-6 lg:px-8 pt-12 pb-12 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 flex flex-col gap-4">
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold">
-              <span className="material-symbols-outlined text-[16px]">verified</span>
-              <span>Standar Editorial Terpadu Konsorsium Jurnexa</span>
-            </div>
-            <h1 className="font-['Plus_Jakarta_Sans'] text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-extrabold tracking-tight leading-[1.2]">
+            <h1 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-extrabold tracking-tight leading-[1.2]">
               Panduan Komprehensif Publikasi Ilmiah &amp; Integritas Penulisan
             </h1>
             <p className="text-base text-slate-600 max-w-3xl leading-relaxed">
-              Standar pedoman penyiapan naskah, alur peer-review tertutup ganda (double-blind), kepatuhan etika Committee on Publication Ethics (COPE), dan transparansi pembiayaan bagi seluruh civitas akademika konsorsium Jurnexa.
+              Standar pedoman penyiapan naskah, alur peer-review tertutup ganda (double-blind), kepatuhan etika Committee on Publication Ethics (COPE), dan transparansi pembiayaan bagi seluruh civitas akademika konsorsium Cendraloka.
             </p>
 
             {/* Fast Download Action Pillows */}
@@ -98,8 +94,8 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               <button
                 onClick={() =>
                   downloadFile(
-                    'JURNEXA_Template_MSWord_2025.docx',
-                    'Template Resmi Jurnexa Format MS Word (IMRaD Standard Document Demo)'
+                    'CENDRALOKA_Template_MSWord_2025.docx',
+                    'Template Resmi Cendraloka Format MS Word (IMRaD Standard Document Demo)'
                   )
                 }
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-all shadow-sm group cursor-pointer"
@@ -119,8 +115,8 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               <button
                 onClick={() =>
                   downloadFile(
-                    'JURNEXA_LaTeX_Overleaf_Template_2025.zip',
-                    '% Jurnexa LaTeX Document Class Simulation Package'
+                    'CENDRALOKA_LaTeX_Overleaf_Template_2025.zip',
+                    '% Cendraloka LaTeX Document Class Simulation Package'
                   )
                 }
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white text-slate-800 text-xs font-semibold hover:bg-slate-50 transition-all shadow-xs border border-slate-200 cursor-pointer group"
@@ -159,25 +155,25 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-slate-900">
+                <div className="font-['Space_Grotesk'] text-2xl font-bold text-slate-900">
                   2.4<span className="text-xs font-normal text-slate-500 ml-1">Minggu</span>
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5 font-medium">First Editorial Decision</div>
               </div>
               <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-blue-600">
+                <div className="font-['Space_Grotesk'] text-2xl font-bold text-blue-600">
                   38<span className="text-xs font-normal text-slate-500 ml-1">Hari</span>
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5 font-medium">Siklus Review Penuh</div>
               </div>
               <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-emerald-600">
+                <div className="font-['Space_Grotesk'] text-2xl font-bold text-emerald-600">
                   21.4%
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5 font-medium">Acceptance Rate (Selektif)</div>
               </div>
               <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-slate-900">
+                <div className="font-['Space_Grotesk'] text-2xl font-bold text-slate-900">
                   100%
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5 font-medium">Open Access DOI Crossref</div>
@@ -234,11 +230,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     01
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Persyaratan &amp; Sistematika Naskah
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -252,7 +248,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               </div>
 
               <p className="text-sm text-slate-600 leading-relaxed">
-                Setiap naskah yang diajukan ke portal Jurnexa wajib mematuhi standar penulisan empiris ilmiah. Penulisan dapat menggunakan Bahasa Indonesia baku sesuai EYD V atau Bahasa Inggris akademis (UK/US standard yang konsisten).
+                Setiap naskah yang diajukan ke portal Cendraloka wajib mematuhi standar penulisan empiris ilmiah. Penulisan dapat menggunakan Bahasa Indonesia baku sesuai EYD V atau Bahasa Inggris akademis (UK/US standard yang konsisten).
               </p>
 
               {/* IMRaD Accordion / Visual Breakdown */}
@@ -260,7 +256,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* Title, Abstract, Keywords */}
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200/70">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 flex items-center gap-2">
                       <span className="material-symbols-outlined text-blue-600 text-[20px]">title</span>
                       Judul, Penulis &amp; Abstrak
                     </span>
@@ -276,7 +272,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* Introduction */}
                 <div className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 flex items-center gap-2">
                       <span className="material-symbols-outlined text-blue-600 text-[20px]">explore</span>
                       Introduction (Pendahuluan)
                     </span>
@@ -292,7 +288,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* Methods */}
                 <div className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 flex items-center gap-2">
                       <span className="material-symbols-outlined text-blue-600 text-[20px]">biotech</span>
                       Methods (Metode Riset)
                     </span>
@@ -308,7 +304,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* Results & Discussion */}
                 <div className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 flex items-center gap-2">
                       <span className="material-symbols-outlined text-blue-600 text-[20px]">query_stats</span>
                       Results and Discussion (Hasil &amp; Pembahasan)
                     </span>
@@ -324,7 +320,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* Conclusion */}
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200/70">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 flex items-center gap-2">
                       <span className="material-symbols-outlined text-blue-600 text-[20px]">task_alt</span>
                       Conclusion &amp; Future Works
                     </span>
@@ -346,11 +342,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     02
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Kebijakan Anti-Plagiarisme &amp; AI Usage
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -387,7 +383,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-slate-900 font-['Plus_Jakarta_Sans'] font-bold text-sm">
+                  <div className="flex items-center gap-2 text-slate-900 font-['Space_Grotesk'] font-bold text-sm">
                     <span className="material-symbols-outlined text-blue-600 text-[22px]">auto_fix_high</span>
                     <span>Etika Pemanfaatan AI Generatif</span>
                   </div>
@@ -397,7 +393,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </p>
                 </div>
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-slate-900 font-['Plus_Jakarta_Sans'] font-bold text-sm">
+                  <div className="flex items-center gap-2 text-slate-900 font-['Space_Grotesk'] font-bold text-sm">
                     <span className="material-symbols-outlined text-blue-600 text-[22px]">assignment_turned_in</span>
                     <span>Kewajiban AI Statement</span>
                   </div>
@@ -419,11 +415,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     03
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Gaya Penulisan &amp; Format Sitasi
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -438,7 +434,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* IEEE Card */}
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col gap-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm text-slate-900 font-bold">
+                    <span className="font-['Space_Grotesk'] text-sm text-slate-900 font-bold">
                       Format IEEE
                     </span>
                     <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-['JetBrains_Mono'] text-xs font-semibold border border-blue-200">
@@ -458,7 +454,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {/* APA 7th Card */}
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col gap-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-['Plus_Jakarta_Sans'] text-sm text-slate-900 font-bold">
+                    <span className="font-['Space_Grotesk'] text-sm text-slate-900 font-bold">
                       Format APA 7th Edition
                     </span>
                     <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-['JetBrains_Mono'] text-xs font-semibold border border-blue-200">
@@ -471,7 +467,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </p>
                   <div className="p-3 bg-white rounded-xl font-['JetBrains_Mono'] text-[11px] text-slate-600 leading-relaxed border border-slate-200">
                     Pratama, A., &amp; Wijaya, S. (2024). Kebijakan tata kelola data sains terbuka.{' '}
-                    <em>Jurnal Studi Kebijakan Ilmiah</em>, 12(1), 55–69. https://doi.org/10.5555/jurnexa.2024.12
+                    <em>Jurnal Studi Kebijakan Ilmiah</em>, 12(1), 55–69. https://doi.org/10.5555/cendraloka.2024.12
                   </div>
                 </div>
               </div>
@@ -483,7 +479,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                     <span className="material-symbols-outlined text-[24px]">extension</span>
                   </div>
                   <div>
-                    <div className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                    <div className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                       Kewajiban Reference Manager
                     </div>
                     <div className="text-xs text-slate-500">
@@ -509,11 +505,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     04
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Siklus &amp; Alur Peer-Review
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -527,7 +523,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               </div>
 
               <p className="text-sm text-slate-600 leading-relaxed">
-                Seluruh jurnal di bawah Konsorsium Jurnexa menerapkan mekanisme telaah sejawat tertutup ganda (identitas mitra bestari dan penulis saling dirahasiakan) untuk memastikan objektivitas evaluasi ilmiah mutlak.
+                Seluruh jurnal di bawah Konsorsium Cendraloka menerapkan mekanisme telaah sejawat tertutup ganda (identitas mitra bestari dan penulis saling dirahasiakan) untuk memastikan objektivitas evaluasi ilmiah mutlak.
               </p>
 
               {/* Stepper Process Flow */}
@@ -542,7 +538,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </div>
                   <div className="grow pb-6">
                     <div className="flex flex-wrap items-center justify-between gap-1">
-                      <h3 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                      <h3 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                         Submisi &amp; Skrining Awal (Desk Review)
                       </h3>
                       <span className="font-['JetBrains_Mono'] text-xs text-blue-600 font-semibold">
@@ -565,7 +561,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </div>
                   <div className="grow pb-6">
                     <div className="flex flex-wrap items-center justify-between gap-1">
-                      <h3 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                      <h3 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                         Penugasan Reviewer Independen
                       </h3>
                       <span className="font-['JetBrains_Mono'] text-xs text-blue-600 font-semibold">
@@ -588,7 +584,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </div>
                   <div className="grow pb-6">
                     <div className="flex flex-wrap items-center justify-between gap-1">
-                      <h3 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                      <h3 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                         Keputusan Editorial &amp; Revisi Naskah
                       </h3>
                       <span className="font-['JetBrains_Mono'] text-xs text-blue-600 font-semibold">
@@ -610,7 +606,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   </div>
                   <div className="grow">
                     <div className="flex flex-wrap items-center justify-between gap-1">
-                      <h3 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                      <h3 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                         Copyediting, Proofreading &amp; DOI Minting
                       </h3>
                       <span className="font-['JetBrains_Mono'] text-xs text-blue-600 font-semibold">
@@ -632,11 +628,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     05
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Kebijakan Biaya Publikasi (APC)
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -648,7 +644,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               </div>
 
               <p className="text-sm text-slate-600 leading-relaxed">
-                Konsorsium Jurnexa mengadopsi model <strong>Platinum &amp; Gold Open Access Bersubsidi</strong>. Biaya publikasi (Article Processing Charge / APC) dibebankan semata-mata untuk operasional server preservasi digital permanen, registrasi DOI Crossref, tata letak profesional, dan pengujian anti-plagiarisme.
+                Konsorsium Cendraloka mengadopsi model <strong>Platinum &amp; Gold Open Access Bersubsidi</strong>. Biaya publikasi (Article Processing Charge / APC) dibebankan semata-mata untuk operasional server preservasi digital permanen, registrasi DOI Crossref, tata letak profesional, dan pengujian anti-plagiarisme.
               </p>
 
               {/* APC Pricing Table Bento */}
@@ -658,7 +654,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                     <div className="text-[11px] font-bold text-slate-500 uppercase">
                       Biaya Submisi (Submission Fee)
                     </div>
-                    <div className="font-['Plus_Jakarta_Sans'] text-3xl font-extrabold text-slate-900 mt-2">
+                    <div className="font-['Space_Grotesk'] text-3xl font-extrabold text-slate-900 mt-2">
                       Rp 0,-
                     </div>
                     <p className="text-xs text-slate-600 mt-2.5 leading-relaxed">
@@ -678,11 +674,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                     <div className="text-[11px] font-bold text-blue-600 uppercase">
                       APC Naskah Diterima (Reguler)
                     </div>
-                    <div className="font-['Plus_Jakarta_Sans'] text-3xl font-extrabold text-slate-900 mt-2">
+                    <div className="font-['Space_Grotesk'] text-3xl font-extrabold text-slate-900 mt-2">
                       Rp 750.000,-
                     </div>
                     <p className="text-xs text-slate-600 mt-2.5 leading-relaxed">
-                      Hanya ditagihkan setelah naskah resmi dinyatakan <strong>ACCEPTED</strong> oleh Dewan Editor Jurnexa.
+                      Hanya ditagihkan setelah naskah resmi dinyatakan <strong>ACCEPTED</strong> oleh Dewan Editor Cendraloka.
                     </p>
                   </div>
                   <span className="mt-5 font-['JetBrains_Mono'] text-xs text-slate-500 font-medium">
@@ -695,7 +691,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                     <div className="text-[11px] font-bold text-slate-500 uppercase">
                       Skema Keringanan (Waiver)
                     </div>
-                    <div className="font-['Plus_Jakarta_Sans'] text-3xl font-extrabold text-emerald-700 mt-2">
+                    <div className="font-['Space_Grotesk'] text-3xl font-extrabold text-emerald-700 mt-2">
                       Diskon s.d 100%
                     </div>
                     <p className="text-xs text-slate-600 mt-2.5 leading-relaxed">
@@ -720,11 +716,11 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-sm text-blue-600">
+                  <span className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-['Space_Grotesk'] font-bold text-sm text-blue-600">
                     06
                   </span>
                   <div>
-                    <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-slate-900">
+                    <h2 className="font-['Space_Grotesk'] text-xl font-bold text-slate-900">
                       Hak Cipta, Lisensi &amp; Kebijakan Retraksi
                     </h2>
                     <p className="text-xs text-slate-500">
@@ -740,26 +736,26 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                   <span className="material-symbols-outlined text-[32px]">balance</span>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">
+                  <h3 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">
                     Penulis Mempertahankan Hak Cipta Penuh (Author Copyright Retention)
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Penulis mempertahankan hak cipta penuh atas naskah tanpa pembatasan. Penulis memberikan hak publikasi pertama kepada Jurnexa di bawah naungan lisensi internasional <strong>Creative Commons Attribution 4.0 (CC BY 4.0)</strong>, yang memperbolehkan pihak manapun mendistribusikan, memodifikasi, dan menyitasi naskah dengan menyebutkan atribusi penulis asli.
+                    Penulis mempertahankan hak cipta penuh atas naskah tanpa pembatasan. Penulis memberikan hak publikasi pertama kepada Cendraloka di bawah naungan lisensi internasional <strong>Creative Commons Attribution 4.0 (CC BY 4.0)</strong>, yang memperbolehkan pihak manapun mendistribusikan, memodifikasi, dan menyitasi naskah dengan menyebutkan atribusi penulis asli.
                   </p>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                  <h4 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 mb-2">
+                  <h4 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 mb-2">
                     Kebijakan Retraksi Naskah
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Jurnexa tunduk sepenuhnya pada pedoman retraksi COPE. Penarikan publikasi (retraction) diberlakukan bila ditemukan fabrikasi data, manipulasi visual, pelanggaran etika kepengarangan yang parah, atau plagiarisme tak termaafkan.
+                    Cendraloka tunduk sepenuhnya pada pedoman retraksi COPE. Penarikan publikasi (retraction) diberlakukan bila ditemukan fabrikasi data, manipulasi visual, pelanggaran etika kepengarangan yang parah, atau plagiarisme tak termaafkan.
                   </p>
                 </div>
                 <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                  <h4 className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900 mb-2">
+                  <h4 className="font-['Space_Grotesk'] text-sm font-bold text-slate-900 mb-2">
                     Pengarsipan Repository Mandiri
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -780,7 +776,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               <div className="flex items-center justify-between pb-1">
                 <div className="flex items-center gap-2.5">
                   <span className="material-symbols-outlined text-blue-600 text-[22px]">fact_check</span>
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+                  <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
                     Checklist Sebelum Submit
                   </h3>
                 </div>
@@ -801,7 +797,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 {[
                   {
                     title: 'Format Template Naskah',
-                    desc: 'Sudah sesuai file template resmi Word/LaTeX Jurnexa (IMRaD).'
+                    desc: 'Sudah sesuai file template resmi Word/LaTeX Cendraloka (IMRaD).'
                   },
                   {
                     title: 'Kelengkapan Metadata Penulis',
@@ -885,14 +881,14 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 <span className="material-symbols-outlined text-blue-600 text-[22px]">
                   download_for_offline
                 </span>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+                <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
                   Paket Berkas Submisi
                 </h3>
               </div>
               <div className="flex flex-col gap-2.5">
                 <button
                   onClick={() =>
-                    downloadFile('Template_Jurnexa_Word.docx', 'Template Word Resmi Jurnexa')
+                    downloadFile('Template_Cendraloka_Word.docx', 'Template Word Resmi Cendraloka')
                   }
                   className="p-3.5 bg-white rounded-2xl hover:shadow-xs transition-all flex items-center justify-between group text-left border border-slate-200 cursor-pointer"
                 >
@@ -902,7 +898,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                     </div>
                     <div className="flex flex-col">
                       <span className="text-xs font-bold text-slate-900 group-hover:text-blue-600">
-                        Template Jurnexa (Word)
+                        Template Cendraloka (Word)
                       </span>
                       <span className="font-['JetBrains_Mono'] text-[10px] text-slate-400">
                         DOCX • 185 KB
@@ -971,7 +967,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
             >
               <div className="flex items-center gap-2.5">
                 <span className="material-symbols-outlined text-blue-600 text-[22px]">support_agent</span>
-                <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+                <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
                   Bantuan &amp; Tim Editorial
                 </h3>
               </div>
@@ -981,7 +977,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
               <div className="flex flex-col gap-2 text-xs text-slate-600">
                 <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                   <span className="material-symbols-outlined text-blue-600 text-[18px]">mail</span>
-                  <span className="font-['JetBrains_Mono'] text-slate-900 font-medium">editorial@jurnexa.ac.id</span>
+                  <span className="font-['JetBrains_Mono'] text-slate-900 font-medium">editorial@cendraloka.ac.id</span>
                 </div>
                 <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                   <span className="material-symbols-outlined text-blue-600 text-[18px]">chat</span>
@@ -989,7 +985,7 @@ export const PublicationGuideView: React.FC<PublicationGuideViewProps> = ({
                 </div>
                 <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                   <span className="material-symbols-outlined text-blue-600 text-[18px]">location_on</span>
-                  <span>Sekretariat Konsorsium Publikasi Jurnexa</span>
+                  <span>Sekretariat Konsorsium Publikasi Cendraloka</span>
                 </div>
               </div>
               <button

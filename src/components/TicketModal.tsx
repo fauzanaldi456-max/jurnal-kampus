@@ -34,7 +34,7 @@ export const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => 
             <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
               <span className="material-symbols-outlined text-[22px]">contact_support</span>
             </div>
-            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+            <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
               Tiket Asistensi Editorial & Helpdesk OJS
             </h3>
           </div>
@@ -55,7 +55,7 @@ export const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => 
               Tiket Berhasil Dibuat: #{ticketNo}
             </span>
             <p className="text-slate-500 max-w-xs leading-relaxed">
-              Tim sekretariat Jurnexa akan merespons melalui surel Anda dalam tempo &lt; 24 jam kerja.
+              Tim sekretariat Cendraloka akan merespons melalui surel Anda dalam tempo &lt; 24 jam kerja.
             </p>
           </div>
         ) : (

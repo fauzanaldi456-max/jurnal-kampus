@@ -22,7 +22,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose, doi }
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-sm w-full shadow-2xl p-6 sm:p-7 flex flex-col items-center text-center gap-5 border border-slate-200">
         <div className="flex items-center justify-between w-full pb-3 border-b border-slate-100">
-          <span className="font-['Plus_Jakarta_Sans'] text-sm font-bold text-slate-900">QR Code Tautan Permanen</span>
+          <span className="font-['Space_Grotesk'] text-sm font-bold text-slate-900">QR Code Tautan Permanen</span>
           <button
             onClick={onClose}
             className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"

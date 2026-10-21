@@ -383,7 +383,7 @@ export const EDITORIAL_MEMBERS: EditorialMember[] = [
     id: 'ed-1',
     name: 'Prof. Dr. Bambang Sudarmono, M.Sc., Ph.D.',
     role: 'Editor-in-Chief',
-    subRole: 'Ketua Konsorsium Jurnexa',
+    subRole: 'Ketua Konsorsium Cendraloka',
     category: 'Pimpinan & Pengarah',
     institution: 'Universitas Indonesia Terpadu',
     bio: 'Guru Besar Rekayasa Komputasi & Sistem Cerdas. Mantan reviewer Ditjen Diktiristek RI dengan pengalaman lebih dari 25 tahun dalam tata kelola jurnal internasional bereputasi.',

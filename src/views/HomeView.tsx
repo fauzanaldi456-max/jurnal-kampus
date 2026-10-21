@@ -60,28 +60,41 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
-      {/* Hero Section - Clean Modern Minimalist positioned higher up */}
-      <section className="relative overflow-hidden pt-8 sm:pt-12 md:pt-16 pb-28 md:pb-36">
+      {/* Hero Section - Clean Modern Minimalist */}
+      <section className="relative overflow-hidden pt-24 sm:pt-28 md:pt-36 pb-36 md:pb-48">
         {/* Subtle background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full bg-gradient-to-b from-blue-50/70 via-indigo-50/20 to-transparent pointer-events-none -z-10 rounded-b-[4rem]"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-['Plus_Jakarta_Sans'] text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="font-['Space_Grotesk'] text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-8">
               Gerbang Riset Ilmiah Terbuka Nusantara
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
               Jelajahi lebih dari <strong className="text-slate-900 font-semibold">1.480 naskah ilmiah bermutu</strong> dari <strong className="text-slate-900 font-semibold">24 jurnal bereputasi SINTA</strong>. Bebas diakses, diunduh, dan dikutip untuk kemajuan ilmu pengetahuan bangsa.
             </p>
+
+            {/* Action Pill & Companion Text */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10">
+              <button
+                onClick={onNavigateDirectory}
+                className="px-8 py-3.5 rounded-full bg-[#bef226] hover:bg-[#aee019] text-slate-950 font-bold text-sm sm:text-base shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+              >
+                Jelajahi Jurnal
+              </button>
+              <span className="text-sm sm:text-base text-slate-500 font-medium text-center sm:text-left">
+                Cek koleksi jurnal dulu, siapa tahu cocok untuk risetmu.
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Author Fast Actions Bento - Pushed below the fold */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Author Fast Actions Bento - Pushed further below the fold */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 md:pt-36 pb-24 sm:pb-32">
         <div className="text-center max-w-xl mx-auto mb-12">
-          <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+          <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
             Layanan Terpadu Penulis & Peneliti
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
@@ -96,7 +109,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-lg mb-3 group-hover:text-blue-600 transition-colors">
                 Panduan Penulisan & Template Naskah
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -116,7 +129,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-emerald-700 transition-colors">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-lg mb-3 group-hover:text-emerald-700 transition-colors">
                 Kirim Naskah Baru (OJS Wizard)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -136,7 +149,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-amber-700 transition-colors">
+              <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-lg mb-3 group-hover:text-amber-700 transition-colors">
                 Permohonan Bebas Biaya (APC Waiver)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -152,21 +165,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Featured Consortium Journals Grid - Sleek Neutral Section */}
-      <section className="bg-slate-50/70 border-y border-slate-200/80 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-semibold mb-2">
-                <span>DIREKTORI PENERBIT</span>
-              </div>
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Jurnal Ilmiah Unggulan Konsorsium
-              </h2>
-            </div>
+      {/* Featured Consortium Journals Grid - Vibrant Cendraloka Brand Blue (bg-blue-600) Showcase Section */}
+      <section className="bg-blue-600 text-white py-20 relative overflow-hidden shadow-inner">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Centered Section Header with Description */}
+          <div className="text-center max-w-2xl mx-auto mb-14 flex flex-col items-center">
+            <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+              Jurnal Ilmiah Unggulan Konsorsium
+            </h2>
+            <p className="text-sm sm:text-base text-blue-100 leading-relaxed max-w-xl mx-auto mb-6">
+              Daftar terbitan berkala ilmiah nasional terakreditasi SINTA dengan tata kelola editorial berstandar internasional COPE dan sistem akses terbuka.
+            </p>
             <button
               onClick={onNavigateDirectory}
-              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 group cursor-pointer"
+              className="inline-flex items-center gap-2 text-xs font-bold text-white bg-white/15 hover:bg-white/25 px-5 py-2.5 rounded-full border border-white/25 transition-all group cursor-pointer shadow-sm hover:scale-105"
             >
               <span>Lihat Seluruh 24 Jurnal</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -177,7 +189,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {CONSORTIUM_JOURNALS.slice(0, 6).map((journal: Journal) => (
               <div
                 key={journal.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all group"
+                className="bg-white rounded-3xl p-6 text-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex flex-col justify-between transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -189,7 +201,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     </span>
                   </div>
 
-                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-base mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <h3 className="font-['Space_Grotesk'] font-bold text-slate-900 text-base mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {journal.title}
                   </h3>
 
@@ -220,21 +232,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* Recent Published Articles List */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-2">
-              <span>REPOSITORI TERBUKA</span>
-            </div>
-            <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-              Artikel Publikasi Terkini
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-              Diseminasi riset ilmiah terbaru yang telah melewati proses peer review dan terbit resmi.
-            </p>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-10 flex flex-col items-center">
+          <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+            Artikel Publikasi Terkini
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto mb-6 leading-relaxed">
+            Diseminasi riset ilmiah terbaru yang telah melewati proses telaah sejawat (peer review) dan resmi terbit berkala.
+          </p>
 
           {/* Discipline Filter */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {disciplines.map((d) => (
               <button
                 key={d}
@@ -272,7 +279,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 <h3
                   onClick={() => onSelectArticle(art)}
-                  className="font-['Plus_Jakarta_Sans'] text-base sm:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer leading-snug"
+                  className="font-['Space_Grotesk'] text-base sm:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer leading-snug"
                 >
                   {art.title}
                 </h3>

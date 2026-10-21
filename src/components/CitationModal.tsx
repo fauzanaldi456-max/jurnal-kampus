@@ -81,7 +81,7 @@ ER  - `;
               <span className="material-symbols-outlined text-[22px]">format_quote</span>
             </div>
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
+              <h3 className="font-['Space_Grotesk'] text-base font-bold text-slate-900">
                 Kutipan Ilmiah Resmi
               </h3>
               <p className="text-xs text-slate-500">
