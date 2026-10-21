@@ -1,0 +1,6 @@
+{
+  "name": "Jurnexa - Portal Publikasi Ilmiah & Konsorsium Jurnal",
+  "description": "Portal publikasi ilmiah multidisiplin terintegrasi, direktori jurnal nasional bereputasi, kepatuhan etika COPE, dan panduan publikasi terpadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
