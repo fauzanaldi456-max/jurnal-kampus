@@ -39,18 +39,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenWaiver }) => {
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
               Platform portal jurnal ilmiah terintegrasi yang berkomitmen menjunjung tinggi integritas penelitian, etika open access internasional, dan transparansi proses peer-review.
             </p>
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold">
-                <span className="material-symbols-outlined text-[14px]">verified</span>
-                <span>COPE Ethical Standard</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 font-['JetBrains_Mono'] text-xs font-medium shadow-xs">
-                <span>DOAJ Compliant</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 font-['JetBrains_Mono'] text-xs font-medium shadow-xs">
-                <span>Crossref DOI</span>
-              </div>
-            </div>
           </div>
 
           {/* Kolom 1: Eksplorasi */}
@@ -189,11 +177,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenWaiver }) => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2025 Jurnexa Portal Ilmiah. Seluruh naskah yang diterbitkan mematuhi standar etika COPE. Semua data simulasi bertanda demo.</p>
-          <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-[11px] shrink-0">
-            <span className="inline-block w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span>Sistem Pengarsipan Digital Permanen</span>
-          </div>
+          <p>© 2025 Jurnexa Portal Ilmiah.</p>
         </div>
       </div>
     </footer>

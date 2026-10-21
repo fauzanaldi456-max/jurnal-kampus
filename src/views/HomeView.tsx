@@ -14,7 +14,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { Article, Journal } from '../types';
-import { PRIMARY_ARTICLE, CATALOG_ARTICLES, CONSORTIUM_JOURNALS } from '../data/mockData';
+import { CATALOG_ARTICLES, CONSORTIUM_JOURNALS } from '../data/mockData';
 
 interface HomeViewProps {
   onSelectArticle: (article: Article) => void;
@@ -60,147 +60,27 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
-      {/* Hero Section - Clean Modern Minimalist with subtle ambient blue accents */}
-      <section className="relative overflow-hidden pt-12 pb-20 md:pt-16 md:pb-28">
+      {/* Hero Section - Clean Modern Minimalist positioned higher up */}
+      <section className="relative overflow-hidden pt-8 sm:pt-12 md:pt-16 pb-28 md:pb-36">
         {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-blue-50/70 via-indigo-50/20 to-transparent pointer-events-none -z-10 rounded-b-[4rem]"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full bg-gradient-to-b from-blue-50/70 via-indigo-50/20 to-transparent pointer-events-none -z-10 rounded-b-[4rem]"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-6 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-              <span>KONSORSIUM PENERBITAN ILMIAH TERAKREDITASI NASIONAL</span>
-            </div>
-
             <h1 className="font-['Plus_Jakarta_Sans'] text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
               Gerbang Riset Ilmiah Terbuka Nusantara
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Jelajahi lebih dari <strong className="text-slate-900 font-semibold">1.480 naskah ilmiah bermutu</strong> dari <strong className="text-slate-900 font-semibold">24 jurnal bereputasi SINTA</strong>. Bebas diakses, diunduh, dan dikutip untuk kemajuan ilmu pengetahuan bangsa.
             </p>
-
-            {/* Central Search Bar */}
-            <div className="relative max-w-2xl mx-auto mb-10">
-              <div className="flex items-center bg-white rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] p-2 border border-slate-200 focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100 transition-all">
-                <div className="pl-4 pr-2 text-slate-400">
-                  <Search className="w-5 h-5" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Cari judul artikel, penulis, kata kunci, atau DOI (mis: Deep Learning)..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full py-2.5 px-2 text-slate-900 placeholder-slate-400 text-sm focus:outline-none font-medium"
-                />
-                <button
-                  onClick={onNavigateArticles}
-                  className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs sm:text-sm font-semibold transition-all shrink-0 shadow-sm cursor-pointer"
-                >
-                  Cari Naskah
-                </button>
-              </div>
-            </div>
-
-            {/* Quick Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center pt-6 border-t border-slate-100">
-              <div className="p-3 rounded-2xl bg-slate-50/60 border border-slate-100">
-                <span className="block text-2xl sm:text-3xl font-extrabold text-blue-600 font-['Plus_Jakarta_Sans']">24</span>
-                <span className="text-xs text-slate-500 font-medium">Jurnal Mitra</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-slate-50/60 border border-slate-100">
-                <span className="block text-2xl sm:text-3xl font-extrabold text-slate-900 font-['Plus_Jakarta_Sans']">1.480+</span>
-                <span className="text-xs text-slate-500 font-medium">Artikel Terbuka</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-slate-50/60 border border-slate-100">
-                <span className="block text-2xl sm:text-3xl font-extrabold text-emerald-600 font-['Plus_Jakarta_Sans']">100%</span>
-                <span className="text-xs text-slate-500 font-medium">Open Access</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-slate-50/60 border border-slate-100">
-                <span className="block text-2xl sm:text-3xl font-extrabold text-indigo-600 font-['Plus_Jakarta_Sans']">SINTA 1–4</span>
-                <span className="text-xs text-slate-500 font-medium">Terakreditasi</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Flagship Featured Manuscript Spotlight - Card Reference Design */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 mb-16 relative z-20">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all">
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-100">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="px-3.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 uppercase tracking-wider">
-                Naskah Unggulan Terbitan Terbaru
-              </span>
-              <span className="text-xs text-slate-500 font-['JetBrains_Mono']">
-                {PRIMARY_ARTICLE.journalShort} • {PRIMARY_ARTICLE.volume} {PRIMARY_ARTICLE.issue} ({PRIMARY_ARTICLE.month})
-              </span>
-            </div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              <Award className="w-3.5 h-3.5" />
-              {PRIMARY_ARTICLE.sintaRank}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <h2
-                onClick={() => onSelectArticle(PRIMARY_ARTICLE)}
-                className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 hover:text-blue-600 transition-colors cursor-pointer leading-snug"
-              >
-                {PRIMARY_ARTICLE.title}
-              </h2>
-
-              <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
-                {PRIMARY_ARTICLE.abstractId.background} {PRIMARY_ARTICLE.abstractId.keyFindings}
-              </p>
-
-              {/* Authors & Metrics Row */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-500 pt-2 border-t border-slate-100">
-                <span className="font-semibold text-slate-800">
-                  {PRIMARY_ARTICLE.authors.map((a) => a.name.split(',')[0]).join(', ')}
-                </span>
-                <span>•</span>
-                <span className="font-['JetBrains_Mono'] text-blue-600 font-medium">
-                  DOI: 10.35824/jtirk.v8i2.142
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                  <strong className="text-slate-800">{PRIMARY_ARTICLE.metrics.citations}</strong> Sitasi Crossref
-                </span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
-              <button
-                onClick={() => onSelectArticle(PRIMARY_ARTICLE)}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all cursor-pointer group"
-              >
-                <BookOpen className="w-4 h-4 text-blue-400" />
-                <span>Baca Naskah Lengkap</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={() => onOpenCitation(PRIMARY_ARTICLE)}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200 transition-colors cursor-pointer"
-              >
-                <Quote className="w-4 h-4 text-slate-400" />
-                <span>Sitasi Artikel</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Author Fast Actions Bento - Follows Reference Layout Style */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Author Fast Actions Bento - Pushed below the fold */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-600 text-xs font-semibold mb-3">
-            <span>LAYANAN KONSORSIUM</span>
-          </div>
           <h2 className="font-['Plus_Jakarta_Sans'] text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
             Layanan Terpadu Penulis & Peneliti
           </h2>
@@ -213,13 +93,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Card 1 */}
           <div
             onClick={onNavigatePublicationGuide}
-            className="card-ref p-7 cursor-pointer group flex flex-col justify-between"
+            className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <FileText className="w-6 h-6" />
-              </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-2.5 group-hover:text-blue-600 transition-colors">
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-blue-600 transition-colors">
                 Panduan Penulisan & Template Naskah
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -230,22 +107,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <span className="text-xs font-bold text-blue-600 group-hover:underline">
                 Buka Panduan Penulisan
               </span>
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
             </div>
           </div>
 
           {/* Card 2 */}
           <div
             onClick={onOpenSubmission}
-            className="card-ref p-7 cursor-pointer group flex flex-col justify-between"
+            className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Globe className="w-6 h-6" />
-              </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-2.5 group-hover:text-emerald-700 transition-colors">
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-emerald-700 transition-colors">
                 Kirim Naskah Baru (OJS Wizard)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -256,22 +127,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <span className="text-xs font-bold text-emerald-700 group-hover:underline">
                 Mulai Pengajuan Naskah
               </span>
-              <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
             </div>
           </div>
 
           {/* Card 3 */}
           <div
             onClick={onOpenWaiver}
-            className="card-ref p-7 cursor-pointer group flex flex-col justify-between"
+            className="card-ref p-8 cursor-pointer group flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 rounded-full bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Award className="w-6 h-6" />
-              </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-2.5 group-hover:text-amber-700 transition-colors">
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-slate-900 text-lg mb-3 group-hover:text-amber-700 transition-colors">
                 Permohonan Bebas Biaya (APC Waiver)
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -282,9 +147,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <span className="text-xs font-bold text-amber-700 group-hover:underline">
                 Ajukan Keringanan APC
               </span>
-              <div className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
             </div>
           </div>
         </div>
