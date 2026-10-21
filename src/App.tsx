@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+  useSearchParams
+} from 'react-router-dom';
 import { PageView, Article } from './types';
 import { PRIMARY_ARTICLE, CATALOG_ARTICLES } from './data/mockData';
 import { Navbar } from './components/Navbar';
@@ -9,6 +17,7 @@ import { ArticleDetailView } from './views/ArticleDetailView';
 import { AboutView } from './views/AboutView';
 import { JournalDirectoryView } from './views/JournalDirectoryView';
 import { ArticleCatalogView } from './views/ArticleCatalogView';
+import { NotFoundView } from './views/NotFoundView';
 
 // Modals
 import { CitationModal } from './components/CitationModal';
@@ -18,8 +27,20 @@ import { LoginModal } from './components/LoginModal';
 import { WaiverModal } from './components/WaiverModal';
 import { TicketModal } from './components/TicketModal';
 
+// Helper component to ensure window scrolls to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageView>('panduan-publikasi');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [selectedArticle, setSelectedArticle] = useState<Article>(PRIMARY_ARTICLE);
 
   // Modals state
@@ -34,25 +55,52 @@ export default function App() {
   const [waiverModalOpen, setWaiverModalOpen] = useState(false);
   const [ticketModalOpen, setTicketModalOpen] = useState(false);
 
-  // Handle URL hash or direct routing if user refreshed or clicks
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
+  // Modal URL query param sync
+  const modalParam = searchParams.get('modal');
+  const isSubmissionOpen = submissionModalOpen || modalParam === 'submission';
+  const isLoginOpen = loginModalOpen || modalParam === 'login';
+  const isWaiverOpen = waiverModalOpen || modalParam === 'waiver';
+  const isTicketOpen = ticketModalOpen || modalParam === 'ticket';
+  const isCitationOpen = citationModalOpen || modalParam === 'citation';
+  const isQrOpen = qrModalOpen || modalParam === 'qr';
+
+  const closeModal = () => {
+    setSubmissionModalOpen(false);
+    setLoginModalOpen(false);
+    setWaiverModalOpen(false);
+    setTicketModalOpen(false);
+    setCitationModalOpen(false);
+    setQrModalOpen(false);
+
+    if (modalParam) {
+      const nextParams = new URLSearchParams(searchParams);
+      nextParams.delete('modal');
+      nextParams.delete('articleId');
+      nextParams.delete('doi');
+      setSearchParams(nextParams, { replace: true });
+    }
+  };
 
   const handleNavigate = (page: PageView, articleId?: string) => {
-    if (articleId) {
-      const found = CATALOG_ARTICLES.find((a) => a.id === articleId) || PRIMARY_ARTICLE;
-      setSelectedArticle(found);
-      setCurrentPage('artikel-detail');
-    } else {
-      setCurrentPage(page);
+    if (page === 'beranda') {
+      navigate('/');
+    } else if (page === 'direktori-jurnal') {
+      navigate('/direktori-jurnal');
+    } else if (page === 'artikel') {
+      navigate('/artikel');
+    } else if (page === 'artikel-detail') {
+      navigate(articleId ? `/artikel/${articleId}` : '/artikel');
+    } else if (page === 'panduan-publikasi') {
+      navigate('/panduan-publikasi');
+    } else if (page === 'tentang-kami') {
+      navigate('/tentang-kami');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectArticle = (article: Article) => {
     setSelectedArticle(article);
-    setCurrentPage('artikel-detail');
+    navigate(`/artikel/${article.id}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -70,110 +118,153 @@ export default function App() {
     setSubmissionModalOpen(true);
   };
 
+  const handleOpenLogin = () => {
+    setLoginModalOpen(true);
+  };
+
+  const handleOpenWaiver = () => {
+    setWaiverModalOpen(true);
+  };
+
+  const handleOpenTicket = () => {
+    setTicketModalOpen(true);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8fafc] text-[#1e293b] font-sans antialiased selection:bg-[#0052cc]/15 selection:text-[#0052cc]">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-700">
+      <ScrollToTop />
+
       {/* Top Universal Navbar */}
       <Navbar
-        currentPage={currentPage}
         onNavigate={handleNavigate}
-        onOpenLogin={() => setLoginModalOpen(true)}
+        onOpenLogin={handleOpenLogin}
         onOpenSubmission={handleOpenSubmission}
       />
 
-      {/* Main Content Area - padded for fixed header */}
-      <main className="flex-1 pt-28">
-        {currentPage === 'beranda' && (
-          <HomeView
-            onSelectArticle={handleSelectArticle}
-            onOpenSubmission={handleOpenSubmission}
-            onOpenCitation={handleOpenCitation}
-            onNavigatePublicationGuide={() => handleNavigate('panduan-publikasi')}
-            onNavigateDirectory={() => handleNavigate('direktori-jurnal')}
-            onNavigateArticles={() => handleNavigate('artikel')}
-            onOpenWaiver={() => setWaiverModalOpen(true)}
+      {/* Main Content Area with React Router */}
+      <main className="flex-1 pt-24">
+        <Routes>
+          {/* Beranda */}
+          <Route
+            path="/"
+            element={
+              <HomeView
+                onSelectArticle={handleSelectArticle}
+                onOpenSubmission={handleOpenSubmission}
+                onOpenCitation={handleOpenCitation}
+                onNavigatePublicationGuide={() => navigate('/panduan-publikasi')}
+                onNavigateDirectory={() => navigate('/direktori-jurnal')}
+                onNavigateArticles={() => navigate('/artikel')}
+                onOpenWaiver={handleOpenWaiver}
+              />
+            }
           />
-        )}
 
-        {currentPage === 'panduan-publikasi' && (
-          <PublicationGuideView
-            onNavigate={handleNavigate}
-            onOpenSubmission={handleOpenSubmission}
-            onOpenWaiver={() => setWaiverModalOpen(true)}
-            onOpenTicket={() => setTicketModalOpen(true)}
+          {/* Direktori Jurnal & Aliases */}
+          <Route
+            path="/direktori-jurnal"
+            element={
+              <JournalDirectoryView
+                onSelectArticle={handleSelectArticle}
+                onOpenSubmissionWithJournal={() => handleOpenSubmission()}
+                onNavigateArticles={() => navigate('/artikel')}
+              />
+            }
           />
-        )}
+          <Route path="/jurnal" element={<Navigate to="/direktori-jurnal" replace />} />
 
-        {currentPage === 'artikel-detail' && (
-          <ArticleDetailView
-            article={selectedArticle}
-            onOpenCitation={handleOpenCitation}
-            onOpenQR={handleOpenQR}
-            onSelectArticle={handleSelectArticle}
-            onNavigateJournal={() => handleNavigate('direktori-jurnal')}
+          {/* Katalog Artikel Repositori */}
+          <Route
+            path="/artikel"
+            element={
+              <ArticleCatalogView
+                onSelectArticle={handleSelectArticle}
+                onOpenCitation={handleOpenCitation}
+              />
+            }
           />
-        )}
 
-        {currentPage === 'tentang-kami' && (
-          <AboutView
-            onOpenTicket={() => setTicketModalOpen(true)}
-            onOpenWaiver={() => setWaiverModalOpen(true)}
-            onNavigatePublicationGuide={() => handleNavigate('panduan-publikasi')}
+          {/* Dynamic Article Detail */}
+          <Route
+            path="/artikel/:id"
+            element={
+              <ArticleDetailView
+                article={selectedArticle}
+                onOpenCitation={handleOpenCitation}
+                onOpenQR={handleOpenQR}
+                onSelectArticle={handleSelectArticle}
+                onNavigateJournal={() => navigate('/direktori-jurnal')}
+              />
+            }
           />
-        )}
 
-        {currentPage === 'direktori-jurnal' && (
-          <JournalDirectoryView
-            onSelectArticle={handleSelectArticle}
-            onOpenSubmissionWithJournal={() => handleOpenSubmission()}
-            onNavigateArticles={() => handleNavigate('artikel')}
+          {/* Panduan Publikasi */}
+          <Route
+            path="/panduan-publikasi"
+            element={
+              <PublicationGuideView
+                onNavigate={handleNavigate}
+                onOpenSubmission={handleOpenSubmission}
+                onOpenWaiver={handleOpenWaiver}
+                onOpenTicket={handleOpenTicket}
+              />
+            }
           />
-        )}
 
-        {currentPage === 'artikel' && (
-          <ArticleCatalogView
-            onSelectArticle={handleSelectArticle}
-            onOpenCitation={handleOpenCitation}
+          {/* Tentang Kami */}
+          <Route
+            path="/tentang-kami"
+            element={
+              <AboutView
+                onOpenTicket={handleOpenTicket}
+                onOpenWaiver={handleOpenWaiver}
+                onNavigatePublicationGuide={() => navigate('/panduan-publikasi')}
+              />
+            }
           />
-        )}
+
+          {/* 404 Not Found Page */}
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       </main>
 
       {/* Institutional Footer */}
       <Footer
         onNavigate={handleNavigate}
-        onOpenWaiver={() => setWaiverModalOpen(true)}
+        onOpenWaiver={handleOpenWaiver}
       />
 
       {/* Global Interactive Modals */}
       <CitationModal
-        isOpen={citationModalOpen}
-        onClose={() => setCitationModalOpen(false)}
+        isOpen={isCitationOpen}
+        onClose={closeModal}
         article={citationArticle}
       />
 
       <QRCodeModal
-        isOpen={qrModalOpen}
-        onClose={() => setQrModalOpen(false)}
+        isOpen={isQrOpen}
+        onClose={closeModal}
         doi={qrDoi}
       />
 
       <SubmissionModal
-        isOpen={submissionModalOpen}
-        onClose={() => setSubmissionModalOpen(false)}
+        isOpen={isSubmissionOpen}
+        onClose={closeModal}
       />
 
       <LoginModal
-        isOpen={loginModalOpen}
-        onClose={() => setLoginModalOpen(false)}
+        isOpen={isLoginOpen}
+        onClose={closeModal}
       />
 
       <WaiverModal
-        isOpen={waiverModalOpen}
-        onClose={() => setWaiverModalOpen(false)}
+        isOpen={isWaiverOpen}
+        onClose={closeModal}
       />
 
       <TicketModal
-        isOpen={ticketModalOpen}
-        onClose={() => setTicketModalOpen(false)}
+        isOpen={isTicketOpen}
+        onClose={closeModal}
       />
     </div>
   );

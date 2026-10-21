@@ -24,76 +24,80 @@ export const WaiverModal: React.FC<WaiverModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl p-6 flex flex-col gap-4 border border-[#e5eeff]">
-        <div className="flex items-center justify-between pb-2 border-b border-[#e5eeff]">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#0c9488] text-[22px]">price_check</span>
-            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-[#0b1c30]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fadeIn">
+      <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl p-6 sm:p-7 flex flex-col gap-5 border border-slate-200">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[22px]">price_check</span>
+            </div>
+            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
               Permohonan Keringanan Biaya (APC Waiver)
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-[#eff4ff] text-[#45464d] hover:text-[#0b1c30]"
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[18px]">close</span>
+            <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
 
         {submitted ? (
-          <div className="py-8 text-center text-xs text-[#0c9488] flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-[36px]">verified</span>
-            <span className="font-bold text-sm text-[#0b1c30]">Permohonan Waiver Berhasil Diajukan!</span>
-            <p className="text-[#45464d] max-w-xs">
+          <div className="py-8 text-center text-xs text-emerald-600 flex flex-col items-center gap-2.5">
+            <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[32px]">verified</span>
+            </div>
+            <span className="font-bold text-base text-slate-900">Permohonan Waiver Berhasil Diajukan!</span>
+            <p className="text-slate-500 max-w-xs leading-relaxed">
               Tim Komite Pembiayaan Jurnexa akan memproses dalam 1-2 hari kerja sebelum penagihan naskah.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-3 pt-1 text-xs text-[#0b1c30]">
+          <form onSubmit={handleSubmit} className="space-y-4 pt-1 text-xs text-slate-900">
             <div>
-              <label className="block font-semibold mb-1">Kategori Pemohon Keringanan:</label>
-              <div className="grid grid-cols-1 gap-2">
+              <label className="block font-semibold mb-2 text-slate-900">Kategori Pemohon Keringanan:</label>
+              <div className="grid grid-cols-1 gap-2.5">
                 <label
-                  className={`p-2.5 rounded-lg border flex items-center justify-between cursor-pointer ${
+                  className={`p-3.5 rounded-2xl border flex items-center justify-between cursor-pointer transition-all select-none ${
                     applicantType === 's1'
-                      ? 'bg-[#eff4ff] border-[#4059aa] text-[#4059aa] font-semibold'
-                      : 'border-[#c6c6cd] text-[#45464d]'
+                      ? 'bg-blue-50/70 border-blue-300 text-blue-900 font-semibold shadow-xs'
+                      : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <input
                       type="radio"
                       name="waiverType"
                       checked={applicantType === 's1'}
                       onChange={() => setApplicantType('s1')}
-                      className="text-[#4059aa]"
+                      className="text-blue-600 focus:ring-0 accent-blue-600 cursor-pointer"
                     />
                     <span>Mahasiswa Strata Satu (S1) Skripsi / Tugas Akhir</span>
                   </div>
-                  <span className="text-[10px] bg-[#e5eeff] px-2 py-0.5 rounded font-bold">
+                  <span className="text-[10px] bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full font-bold">
                     Diskon 100% (Gratis)
                   </span>
                 </label>
 
                 <label
-                  className={`p-2.5 rounded-lg border flex items-center justify-between cursor-pointer ${
+                  className={`p-3.5 rounded-2xl border flex items-center justify-between cursor-pointer transition-all select-none ${
                     applicantType === 'independent'
-                      ? 'bg-[#eff4ff] border-[#4059aa] text-[#4059aa] font-semibold'
-                      : 'border-[#c6c6cd] text-[#45464d]'
+                      ? 'bg-blue-50/70 border-blue-300 text-blue-900 font-semibold shadow-xs'
+                      : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <input
                       type="radio"
                       name="waiverType"
                       checked={applicantType === 'independent'}
                       onChange={() => setApplicantType('independent')}
-                      className="text-[#4059aa]"
+                      className="text-blue-600 focus:ring-0 accent-blue-600 cursor-pointer"
                     />
                     <span>Peneliti Mandiri Tanpa Hibah Institusi</span>
                   </div>
-                  <span className="text-[10px] bg-[#e5eeff] px-2 py-0.5 rounded font-bold">
+                  <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-0.5 rounded-full font-bold">
                     Diskon 50% - 75%
                   </span>
                 </label>
@@ -101,52 +105,52 @@ export const WaiverModal: React.FC<WaiverModalProps> = ({ isOpen, onClose }) => 
             </div>
 
             <div>
-              <label className="block font-semibold mb-1">Nama Penulis Utama:</label>
+              <label className="block font-semibold mb-1.5 text-slate-900">Nama Penulis Utama:</label>
               <input
                 type="text"
                 required
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
                 placeholder="Nama lengkap dan gelar"
-                className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block font-semibold mb-1">Judul / ID Naskah yang Diterima:</label>
+              <label className="block font-semibold mb-1.5 text-slate-900">Judul / ID Naskah yang Diterima:</label>
               <input
                 type="text"
                 required
                 value={manuscriptTitle}
                 onChange={(e) => setManuscriptTitle(e.target.value)}
                 placeholder="Contoh: Implementasi Transformasi Deep Learning..."
-                className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block font-semibold mb-1">Alasan Pengajuan Dispensasi:</label>
+              <label className="block font-semibold mb-1.5 text-slate-900">Alasan Pengajuan Dispensasi:</label>
               <textarea
                 rows={3}
                 required
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 placeholder="Jelaskan status pendanaan penelitian Anda secara singkat..."
-                className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex justify-end gap-2.5 pt-2 border-t border-slate-100">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 border border-[#c6c6cd] rounded-lg text-[#45464d] hover:bg-[#eff4ff]"
+                className="px-5 py-2.5 border border-slate-200 rounded-full text-slate-600 hover:bg-slate-50 font-semibold cursor-pointer"
               >
                 Batal
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 bg-black hover:bg-[#131b2e] text-white rounded-lg font-semibold shadow-sm"
+                className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full font-semibold shadow-xs cursor-pointer"
               >
                 Kirim Permohonan
               </button>

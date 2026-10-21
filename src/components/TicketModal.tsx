@@ -27,41 +27,45 @@ export const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl p-6 flex flex-col gap-4 border border-[#e5eeff]">
-        <div className="flex items-center justify-between pb-2 border-b border-[#e5eeff]">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#4059aa] text-[22px]">contact_support</span>
-            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-[#0b1c30]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fadeIn">
+      <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl p-6 sm:p-7 flex flex-col gap-5 border border-slate-200">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[22px]">contact_support</span>
+            </div>
+            <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
               Tiket Asistensi Editorial & Helpdesk OJS
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-[#eff4ff] text-[#45464d] hover:text-[#0b1c30]"
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[18px]">close</span>
+            <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
 
         {submitted ? (
-          <div className="py-8 text-center text-xs text-[#0c9488] flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-[36px]">confirmation_number</span>
-            <span className="font-bold text-sm text-[#0b1c30]">
+          <div className="py-8 text-center text-xs text-emerald-600 flex flex-col items-center gap-2.5">
+            <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[32px]">confirmation_number</span>
+            </div>
+            <span className="font-bold text-base text-slate-900">
               Tiket Berhasil Dibuat: #{ticketNo}
             </span>
-            <p className="text-[#45464d] max-w-xs">
+            <p className="text-slate-500 max-w-xs leading-relaxed">
               Tim sekretariat Jurnexa akan merespons melalui surel Anda dalam tempo &lt; 24 jam kerja.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-3 pt-1 text-xs text-[#0b1c30]">
+          <form onSubmit={handleSubmit} className="space-y-4 pt-1 text-xs text-slate-900">
             <div>
-              <label className="block font-semibold mb-1">Topik Bantuan:</label>
+              <label className="block font-semibold mb-1.5 text-slate-900">Topik Bantuan:</label>
               <select
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
-                className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 bg-white focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none cursor-pointer font-medium"
               >
                 <option value="ojs-tech">Kendala Teknis Portal OJS 3 (Upload Gagal/Error)</option>
                 <option value="reviewer-invitation">Konfirmasi Undangan Mitra Bestari</option>
@@ -71,54 +75,54 @@ export const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => 
               </select>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div>
-                <label className="block font-semibold mb-1">Nama Lengkap:</label>
+                <label className="block font-semibold mb-1.5 text-slate-900">Nama Lengkap:</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Nama pengirim tiket"
-                  className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                  className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
                 />
               </div>
               <div>
-                <label className="block font-semibold mb-1">Surel Balasan:</label>
+                <label className="block font-semibold mb-1.5 text-slate-900">Surel Balasan:</label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="surel@institusi.ac.id"
-                  className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                  className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block font-semibold mb-1">Uraian Pertanyaan / Kendala:</label>
+              <label className="block font-semibold mb-1.5 text-slate-900">Uraian Pertanyaan / Kendala:</label>
               <textarea
                 rows={4}
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Deskripsikan detail kendala Anda..."
-                className="w-full p-2.5 rounded-lg border border-[#c6c6cd] focus:ring-2 focus:ring-[#4059aa]/40 focus:outline-none"
+                className="w-full p-3 rounded-2xl border border-slate-200 text-slate-900 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex justify-end gap-2.5 pt-2 border-t border-slate-100">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 border border-[#c6c6cd] rounded-lg text-[#45464d] hover:bg-[#eff4ff]"
+                className="px-5 py-2.5 border border-slate-200 rounded-full text-slate-600 hover:bg-slate-50 font-semibold cursor-pointer"
               >
                 Batal
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 bg-black hover:bg-[#131b2e] text-white rounded-lg font-semibold shadow-sm"
+                className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full font-semibold shadow-xs cursor-pointer"
               >
                 Kirim Tiket
               </button>

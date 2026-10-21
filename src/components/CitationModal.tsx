@@ -72,41 +72,41 @@ ER  - `;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl p-6 flex flex-col gap-5 max-h-[90vh] overflow-y-auto border border-[#e5eeff]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fadeIn">
+      <div className="bg-white rounded-3xl max-w-2xl w-full shadow-2xl p-6 sm:p-8 flex flex-col gap-6 max-h-[90vh] overflow-y-auto border border-slate-200">
         {/* Header */}
-        <div className="flex items-center justify-between pb-2 border-b border-[#e5eeff]">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-[#e5eeff] flex items-center justify-center text-[#4059aa]">
-              <span className="material-symbols-outlined text-[20px]">format_quote</span>
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[22px]">format_quote</span>
             </div>
             <div>
-              <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-[#0b1c30]">
+              <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-slate-900">
                 Kutipan Ilmiah Resmi
               </h3>
-              <p className="text-xs text-[#45464d]">
+              <p className="text-xs text-slate-500">
                 Gunakan format sitasi baku untuk artikel naskah ini
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-[#eff4ff] text-[#45464d] hover:text-[#0b1c30] transition-colors"
+            className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[20px]">close</span>
           </button>
         </div>
 
         {/* Format Selection Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#eff4ff] rounded-lg text-xs">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100/80 rounded-full text-xs">
           {(['apa', 'ieee', 'harvard', 'chicago', 'vancouver'] as const).map((fmt) => (
             <button
               key={fmt}
               onClick={() => setActiveTab(fmt)}
-              className={`px-3 py-1.5 rounded-md font-medium transition-all ${
+              className={`px-4 py-1.5 rounded-full font-semibold transition-all cursor-pointer ${
                 activeTab === fmt
-                  ? 'bg-white text-[#0b1c30] shadow-sm font-semibold'
-                  : 'text-[#45464d] hover:text-[#0b1c30]'
+                  ? 'bg-white text-slate-900 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               {fmt === 'apa'
@@ -123,14 +123,14 @@ ER  - `;
         </div>
 
         {/* Modal Citation Text View */}
-        <div className="p-4 bg-[#eff4ff] rounded-xl text-xs text-[#0b1c30] relative border border-[#d3e4fe]">
-          <div className="leading-relaxed font-normal">{citations[activeTab]}</div>
+        <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl text-xs text-slate-800 relative border border-slate-200 font-mono">
+          <div className="leading-relaxed font-normal break-words">{citations[activeTab]}</div>
         </div>
 
         {/* Copy Action Row */}
         <div className="flex items-center justify-between">
           <span
-            className={`font-['JetBrains_Mono'] text-xs text-[#0c9488] transition-opacity ${
+            className={`font-['JetBrains_Mono'] text-xs text-emerald-600 font-semibold transition-opacity ${
               copied ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -138,7 +138,7 @@ ER  - `;
           </span>
           <button
             onClick={handleCopy}
-            className="ml-auto px-4 py-2 bg-black hover:bg-[#131b2e] text-white rounded-lg text-xs font-semibold flex items-center gap-2 transition-colors shadow-sm"
+            className="ml-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs font-semibold flex items-center gap-2 transition-colors shadow-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">content_copy</span>
             <span>{copied ? 'Tersalin!' : 'Salin Teks Kutipan'}</span>
@@ -146,38 +146,38 @@ ER  - `;
         </div>
 
         {/* Export to Reference Managers Section */}
-        <div className="pt-2 border-t border-[#e5eeff] flex flex-col gap-2">
-          <span className="text-xs font-bold text-[#0b1c30]">
+        <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+          <span className="text-xs font-bold text-slate-900">
             Unduh File Sitasi ke Reference Manager:
           </span>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             <button
               onClick={downloadBibtex}
-              className="p-2.5 rounded-lg bg-[#eff4ff] hover:bg-[#e5eeff] text-left flex flex-col gap-0.5 transition-colors border border-[#e5eeff]"
+              className="p-3 rounded-2xl bg-slate-50 hover:bg-blue-50/60 text-left flex flex-col gap-0.5 transition-colors border border-slate-200 cursor-pointer group"
             >
-              <span className="font-['JetBrains_Mono'] text-xs font-bold text-[#4059aa]">.BIB</span>
-              <span className="text-[11px] text-[#0b1c30]">BibTeX / LaTeX</span>
+              <span className="font-['JetBrains_Mono'] text-xs font-bold text-blue-600">.BIB</span>
+              <span className="text-[11px] text-slate-700 group-hover:text-blue-700">BibTeX / LaTeX</span>
             </button>
             <button
               onClick={downloadRIS}
-              className="p-2.5 rounded-lg bg-[#eff4ff] hover:bg-[#e5eeff] text-left flex flex-col gap-0.5 transition-colors border border-[#e5eeff]"
+              className="p-3 rounded-2xl bg-slate-50 hover:bg-blue-50/60 text-left flex flex-col gap-0.5 transition-colors border border-slate-200 cursor-pointer group"
             >
-              <span className="font-['JetBrains_Mono'] text-xs font-bold text-[#4059aa]">.RIS</span>
-              <span className="text-[11px] text-[#0b1c30]">Mendeley / Zotero</span>
+              <span className="font-['JetBrains_Mono'] text-xs font-bold text-blue-600">.RIS</span>
+              <span className="text-[11px] text-slate-700 group-hover:text-blue-700">Mendeley / Zotero</span>
             </button>
             <button
               onClick={downloadRIS}
-              className="p-2.5 rounded-lg bg-[#eff4ff] hover:bg-[#e5eeff] text-left flex flex-col gap-0.5 transition-colors border border-[#e5eeff]"
+              className="p-3 rounded-2xl bg-slate-50 hover:bg-blue-50/60 text-left flex flex-col gap-0.5 transition-colors border border-slate-200 cursor-pointer group"
             >
-              <span className="font-['JetBrains_Mono'] text-xs font-bold text-[#4059aa]">.ENW</span>
-              <span className="text-[11px] text-[#0b1c30]">Thomson EndNote</span>
+              <span className="font-['JetBrains_Mono'] text-xs font-bold text-blue-600">.ENW</span>
+              <span className="text-[11px] text-slate-700 group-hover:text-blue-700">Thomson EndNote</span>
             </button>
             <button
               onClick={downloadBibtex}
-              className="p-2.5 rounded-lg bg-[#eff4ff] hover:bg-[#e5eeff] text-left flex flex-col gap-0.5 transition-colors border border-[#e5eeff]"
+              className="p-3 rounded-2xl bg-slate-50 hover:bg-blue-50/60 text-left flex flex-col gap-0.5 transition-colors border border-slate-200 cursor-pointer group"
             >
-              <span className="font-['JetBrains_Mono'] text-xs font-bold text-[#4059aa]">.XML</span>
-              <span className="text-[11px] text-[#0b1c30]">Crossref Schema</span>
+              <span className="font-['JetBrains_Mono'] text-xs font-bold text-blue-600">.XML</span>
+              <span className="text-[11px] text-slate-700 group-hover:text-blue-700">Crossref Schema</span>
             </button>
           </div>
         </div>
