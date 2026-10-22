@@ -32,7 +32,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return localStorage.getItem('cendraloka_token');
   });
 
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(() => {
+    return !localStorage.getItem('cendraloka_user');
+  });
 
   // Restore session from API or Supabase on mount
   useEffect(() => {

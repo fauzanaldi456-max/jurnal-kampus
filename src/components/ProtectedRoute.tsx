@@ -13,13 +13,9 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ allowedRoles, ch
   const { user, isLoading } = useAuth();
   const location = useLocation();
 
-  if (isLoading) {
-    return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center p-6 text-center">
-        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-4" />
-        <p className="text-sm font-semibold text-slate-600">Memverifikasi hak akses portal ilmiah...</p>
-      </div>
-    );
+  // If not authenticated and still loading on fresh visit, return null without any loading text/spinner
+  if (!user && isLoading) {
+    return null;
   }
 
   if (!user) {
