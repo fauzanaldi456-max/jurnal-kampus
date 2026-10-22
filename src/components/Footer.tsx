@@ -128,6 +128,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenWaiver }) => {
                   Template Naskah (Docx/LaTeX)
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => handleNav('/masuk', 'masuk')}
+                  className="hover:text-white transition-colors text-left cursor-pointer font-bold text-white underline underline-offset-2"
+                >
+                  Pintu Masuk Terpadu OJS
+                </button>
+              </li>
             </ul>
           </div>
 

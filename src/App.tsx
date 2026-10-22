@@ -5,10 +5,10 @@ import {
   Navigate,
   useNavigate,
   useLocation,
-  useSearchParams
+  useSearchParams,
 } from 'react-router-dom';
 import { PageView, Article } from './types';
-import { PRIMARY_ARTICLE, CATALOG_ARTICLES } from './data/mockData';
+import { PRIMARY_ARTICLE } from './data/mockData';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomeView } from './views/HomeView';
@@ -18,6 +18,37 @@ import { AboutView } from './views/AboutView';
 import { JournalDirectoryView } from './views/JournalDirectoryView';
 import { ArticleCatalogView } from './views/ArticleCatalogView';
 import { NotFoundView } from './views/NotFoundView';
+import { LoginView } from './views/LoginView';
+import { RegisterView } from './views/RegisterView';
+
+// Protected Route Guard
+import { ProtectedRoute } from './components/ProtectedRoute';
+
+// Author Views
+import { AuthorDashboardView } from './views/author/AuthorDashboardView';
+import { AuthorSubmissionsView } from './views/author/AuthorSubmissionsView';
+import { AuthorSubmissionDetailView } from './views/author/AuthorSubmissionDetailView';
+import { AuthorNewSubmissionView } from './views/author/AuthorNewSubmissionView';
+import { AuthorProfileView } from './views/author/AuthorProfileView';
+
+// Editor Views
+import { EditorDashboardView } from './views/editor/EditorDashboardView';
+import { EditorSubmissionsView } from './views/editor/EditorSubmissionsView';
+import { EditorSubmissionDetailView } from './views/editor/EditorSubmissionDetailView';
+import { EditorReviewersView } from './views/editor/EditorReviewersView';
+import { EditorDecisionsView } from './views/editor/EditorDecisionsView';
+
+// Reviewer Views
+import { ReviewerDashboardView } from './views/reviewer/ReviewerDashboardView';
+import { ReviewerAssignmentsView } from './views/reviewer/ReviewerAssignmentsView';
+import { ReviewerAssignmentDetailView } from './views/reviewer/ReviewerAssignmentDetailView';
+import { ReviewerHistoryView } from './views/reviewer/ReviewerHistoryView';
+
+// Admin Views
+import { AdminDashboardView } from './views/admin/AdminDashboardView';
+import { AdminUsersView } from './views/admin/AdminUsersView';
+import { AdminJournalsView } from './views/admin/AdminJournalsView';
+import { AdminAuditLogsView } from './views/admin/AdminAuditLogsView';
 
 // Modals
 import { CitationModal } from './components/CitationModal';
@@ -94,6 +125,8 @@ export default function App() {
       navigate('/panduan-publikasi');
     } else if (page === 'tentang-kami') {
       navigate('/tentang-kami');
+    } else if (page === 'masuk') {
+      navigate('/masuk');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -119,7 +152,8 @@ export default function App() {
   };
 
   const handleOpenLogin = () => {
-    setLoginModalOpen(true);
+    navigate('/masuk');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenWaiver = () => {
@@ -130,21 +164,38 @@ export default function App() {
     setTicketModalOpen(true);
   };
 
+  const isAuthPage =
+    location.pathname === '/masuk' ||
+    location.pathname === '/login' ||
+    location.pathname === '/portal' ||
+    location.pathname === '/daftar' ||
+    location.pathname === '/register';
+
+  const isDashboardPage =
+    location.pathname.startsWith('/author') ||
+    location.pathname.startsWith('/editor') ||
+    location.pathname.startsWith('/reviewer') ||
+    location.pathname.startsWith('/admin');
+
+  const hidePublicHeaderFooter = isAuthPage || isDashboardPage;
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-700">
       <ScrollToTop />
 
-      {/* Top Universal Navbar */}
-      <Navbar
-        onNavigate={handleNavigate}
-        onOpenLogin={handleOpenLogin}
-        onOpenSubmission={handleOpenSubmission}
-      />
+      {/* Top Universal Navbar (Hidden on Login Page and Dashboard Pages) */}
+      {!hidePublicHeaderFooter && (
+        <Navbar
+          onNavigate={handleNavigate}
+          onOpenLogin={handleOpenLogin}
+          onOpenSubmission={handleOpenSubmission}
+        />
+      )}
 
       {/* Main Content Area with React Router */}
-      <main className="flex-1 pt-24">
+      <main className={`flex-1 ${hidePublicHeaderFooter ? 'pt-0' : 'pt-24'}`}>
         <Routes>
-          {/* Beranda */}
+          {/* Public Routes */}
           <Route
             path="/"
             element={
@@ -160,7 +211,6 @@ export default function App() {
             }
           />
 
-          {/* Direktori Jurnal & Aliases */}
           <Route
             path="/direktori-jurnal"
             element={
@@ -173,7 +223,6 @@ export default function App() {
           />
           <Route path="/jurnal" element={<Navigate to="/direktori-jurnal" replace />} />
 
-          {/* Katalog Artikel Repositori */}
           <Route
             path="/artikel"
             element={
@@ -184,7 +233,6 @@ export default function App() {
             }
           />
 
-          {/* Dynamic Article Detail */}
           <Route
             path="/artikel/:id"
             element={
@@ -198,7 +246,6 @@ export default function App() {
             }
           />
 
-          {/* Panduan Publikasi */}
           <Route
             path="/panduan-publikasi"
             element={
@@ -211,7 +258,6 @@ export default function App() {
             }
           />
 
-          {/* Tentang Kami */}
           <Route
             path="/tentang-kami"
             element={
@@ -223,16 +269,177 @@ export default function App() {
             }
           />
 
-          {/* 404 Not Found Page */}
+          {/* Unified Login & Register Routes */}
+          <Route path="/masuk" element={<LoginView />} />
+          <Route path="/login" element={<Navigate to="/masuk" replace />} />
+          <Route path="/portal" element={<Navigate to="/masuk" replace />} />
+          <Route path="/daftar" element={<RegisterView />} />
+          <Route path="/register" element={<Navigate to="/daftar" replace />} />
+
+          {/* AUTHOR (Mahasiswa / Penulis) Protected Routes */}
+          <Route
+            path="/author/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['author', 'admin']}>
+                <AuthorDashboardView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/author/submissions"
+            element={
+              <ProtectedRoute allowedRoles={['author', 'admin']}>
+                <AuthorSubmissionsView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/author/submissions/new"
+            element={
+              <ProtectedRoute allowedRoles={['author', 'admin']}>
+                <AuthorNewSubmissionView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/author/submissions/:id"
+            element={
+              <ProtectedRoute allowedRoles={['author', 'admin']}>
+                <AuthorSubmissionDetailView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/author/profile"
+            element={
+              <ProtectedRoute allowedRoles={['author', 'admin']}>
+                <AuthorProfileView />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* EDITORIAL (Dewan Editor OJS) Protected Routes */}
+          <Route
+            path="/editor/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['editor', 'admin']}>
+                <EditorDashboardView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/editor/submissions"
+            element={
+              <ProtectedRoute allowedRoles={['editor', 'admin']}>
+                <EditorSubmissionsView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/editor/submissions/:id"
+            element={
+              <ProtectedRoute allowedRoles={['editor', 'admin']}>
+                <EditorSubmissionDetailView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/editor/reviewers"
+            element={
+              <ProtectedRoute allowedRoles={['editor', 'admin']}>
+                <EditorReviewersView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/editor/decisions"
+            element={
+              <ProtectedRoute allowedRoles={['editor', 'admin']}>
+                <EditorDecisionsView />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* REVIEWER (Mitra Bestari) Protected Routes */}
+          <Route
+            path="/reviewer/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['reviewer', 'admin']}>
+                <ReviewerDashboardView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviewer/assignments"
+            element={
+              <ProtectedRoute allowedRoles={['reviewer', 'admin']}>
+                <ReviewerAssignmentsView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviewer/assignments/:id"
+            element={
+              <ProtectedRoute allowedRoles={['reviewer', 'admin']}>
+                <ReviewerAssignmentDetailView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviewer/history"
+            element={
+              <ProtectedRoute allowedRoles={['reviewer', 'admin']}>
+                <ReviewerHistoryView />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* SUPER ADMIN Protected Routes */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminDashboardView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminUsersView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/journals"
+            element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminJournalsView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/audit-logs"
+            element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminAuditLogsView />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* 404 Fallback Page */}
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </main>
 
-      {/* Institutional Footer */}
-      <Footer
-        onNavigate={handleNavigate}
-        onOpenWaiver={handleOpenWaiver}
-      />
+      {/* Institutional Footer (Hidden on Login Page and Dashboard Pages) */}
+      {!hidePublicHeaderFooter && (
+        <Footer
+          onNavigate={handleNavigate}
+          onOpenWaiver={handleOpenWaiver}
+        />
+      )}
 
       {/* Global Interactive Modals */}
       <CitationModal

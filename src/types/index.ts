@@ -4,7 +4,9 @@ export type PageView =
   | 'artikel'
   | 'panduan-publikasi'
   | 'tentang-kami'
-  | 'artikel-detail';
+  | 'artikel-detail'
+  | 'masuk'
+  | 'daftar';
 
 export interface Author {
   name: string;
@@ -126,3 +128,27 @@ export interface SubmissionDraft {
   agreedToOriginality: boolean;
   agreedToCope: boolean;
 }
+
+export type UserRole = 'author' | 'editor' | 'reviewer' | 'admin';
+
+export interface UserProfile {
+  id: string;
+  email: string;
+  full_name: string;
+  role: UserRole;
+  institution?: string;
+  orcid?: string;
+  phone?: string;
+  bio?: string;
+  created_at?: string;
+}
+
+export type SubmissionStatus =
+  | 'SUBMITTED'
+  | 'TECHNICAL_CHECK'
+  | 'IN_REVIEW'
+  | 'REVISION_REQUIRED'
+  | 'ACCEPTED'
+  | 'DECLINED'
+  | 'IN_PRODUCTION'
+  | 'PUBLISHED';

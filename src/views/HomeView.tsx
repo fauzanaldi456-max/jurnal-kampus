@@ -79,7 +79,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10">
               <button
                 onClick={onNavigateDirectory}
-                className="px-8 py-3.5 rounded-full bg-[#bef226] hover:bg-[#aee019] text-slate-950 font-bold text-sm sm:text-base shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+                className="px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md hover:shadow-blue-500/20 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
               >
                 Jelajahi Jurnal
               </button>

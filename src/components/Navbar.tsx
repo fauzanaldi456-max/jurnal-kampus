@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PageView } from '../types';
+import { useAuth } from '../context/AuthContext';
+import { LayoutDashboard, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   currentPage?: PageView;
@@ -17,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   // Dynamically resolve active page based on current URL path
   const getActivePage = (): PageView => {
@@ -27,6 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     if (p === '/artikel') return 'artikel';
     if (p === '/panduan-publikasi') return 'panduan-publikasi';
     if (p === '/tentang-kami') return 'tentang-kami';
+    if (p === '/masuk' || p === '/login' || p === '/portal') return 'masuk';
+    if (p === '/daftar' || p === '/register') return 'daftar';
     return currentPage || 'beranda';
   };
 
@@ -45,6 +50,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       navigate('/panduan-publikasi');
     } else if (page === 'tentang-kami') {
       navigate('/tentang-kami');
+    } else if (page === 'masuk') {
+      navigate('/masuk');
+    } else if (page === 'daftar') {
+      navigate('/daftar');
     }
 
     if (onNavigate) {
@@ -136,22 +145,53 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Elements */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            {/* Masuk (Sign in) Button */}
-            <button
-              onClick={onOpenLogin}
-              className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold rounded-full text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-xs cursor-pointer"
-            >
-              Masuk
-            </button>
+            {/* Desktop Action Buttons (Visible on lg screens) */}
+            <div className="hidden lg:flex items-center gap-2">
+              {user ? (
+                <button
+                  onClick={() => navigate(`/${user.role}/dashboard`)}
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-xs cursor-pointer"
+                >
+                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  <span>Dashboard</span>
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => handleNavigation('masuk')}
+                    className={`inline-flex items-center justify-center px-4 sm:px-5 py-2 text-xs font-semibold rounded-full transition-all shadow-xs cursor-pointer ${
+                      activePage === 'masuk'
+                        ? 'bg-blue-600 text-white border border-blue-600'
+                        : 'text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                    }`}
+                  >
+                    Masuk
+                  </button>
+                  <button
+                    onClick={() => handleNavigation('daftar')}
+                    className={`inline-flex items-center justify-center px-4 sm:px-5 py-2 text-xs font-bold rounded-full transition-all shadow-xs cursor-pointer ${
+                      activePage === 'daftar'
+                        ? 'bg-blue-700 text-white shadow-sm'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 shadow-blue-500/10'
+                    }`}
+                  >
+                    Daftar
+                  </button>
+                </>
+              )}
+            </div>
 
-            {/* Mobile Menu Toggle Button */}
+            {/* Mobile Menu Button - Gabungan Masuk & Menu Navigasi jadi Garis 3 */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-full text-slate-700 hover:bg-slate-100 cursor-pointer"
+              aria-label="Menu navigasi"
+              className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 active:scale-95 transition-all cursor-pointer"
             >
-              <span className="material-symbols-outlined text-[24px]">
-                {isMobileMenuOpen ? 'close' : 'menu'}
-              </span>
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5 text-slate-700" />
+              ) : (
+                <Menu className="w-5 h-5 text-slate-700" />
+              )}
             </button>
           </div>
         </div>
@@ -221,15 +261,47 @@ export const Navbar: React.FC<NavbarProps> = ({
               Tentang Kami
             </button>
             <div className="pt-3 border-t border-slate-100 flex gap-2">
-              <button
-                onClick={() => {
-                  onOpenLogin();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full py-2.5 rounded-full border border-slate-200 text-xs font-semibold text-center text-slate-700 hover:bg-slate-50"
-              >
-                Masuk
-              </button>
+              {user ? (
+                <button
+                  onClick={() => {
+                    navigate(`/${user.role}/dashboard`);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold text-center cursor-pointer transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                >
+                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  <span>Buka Dashboard</span>
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      handleNavigation('masuk');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`flex-1 py-2.5 rounded-full border text-xs font-semibold text-center cursor-pointer transition-colors ${
+                      activePage === 'masuk'
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'border-slate-200 text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    Masuk
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleNavigation('daftar');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`flex-1 py-2.5 rounded-full text-xs font-bold text-center cursor-pointer transition-colors shadow-xs ${
+                      activePage === 'daftar'
+                        ? 'bg-blue-700 text-white'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    }`}
+                  >
+                    Daftar
+                  </button>
+                </>
+              )}
             </div>
           </div>
         )}
