@@ -184,12 +184,26 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
     <div className="min-h-screen bg-[#f8fafc] flex font-sans text-slate-800 antialiased">
       {/* Desktop Left Sidebar (Collapsible with Icon Mode) */}
       <aside
-        className={`hidden lg:flex shrink-0 flex-col bg-white border-r border-slate-200/80 sticky top-0 h-screen z-30 justify-between transition-all duration-300 ease-in-out ${
+        className={`relative hidden lg:flex shrink-0 flex-col bg-white border-r border-slate-200/80 sticky top-0 h-screen z-30 justify-between transition-all duration-300 ease-in-out ${
           isSidebarCollapsed ? 'w-20 p-3.5' : 'w-72 p-5'
         }`}
       >
+        {/* Toggle Button: Always on the right side / edge, never below */}
+        <button
+          type="button"
+          onClick={toggleSidebarCollapse}
+          className="absolute -right-3.5 top-6 w-7 h-7 bg-white hover:bg-slate-50 text-slate-500 hover:text-blue-600 rounded-full border border-slate-200 shadow-xs flex items-center justify-center transition cursor-pointer z-40 group"
+          title={isSidebarCollapsed ? 'Buka Sidebar' : 'Tutup Sidebar'}
+        >
+          {isSidebarCollapsed ? (
+            <PanelLeftOpen className="w-3.5 h-3.5 transition-transform group-hover:scale-110 text-slate-500 group-hover:text-blue-600" />
+          ) : (
+            <PanelLeftClose className="w-3.5 h-3.5 transition-transform group-hover:scale-110 text-slate-500 group-hover:text-blue-600" />
+          )}
+        </button>
+
         <div>
-          {/* Top Brand Logo & Toggle */}
+          {/* Top Brand Logo */}
           <div className="flex items-center justify-between mb-6">
             <Link
               to="/"
@@ -215,32 +229,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                 </div>
               )}
             </Link>
-
-            {!isSidebarCollapsed && (
-              <button
-                type="button"
-                onClick={toggleSidebarCollapse}
-                className="w-8 h-8 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition cursor-pointer shrink-0"
-                title="Tutup Sidebar"
-              >
-                <PanelLeftClose className="w-4 h-4" />
-              </button>
-            )}
           </div>
-
-          {/* Expand toggle button when collapsed */}
-          {isSidebarCollapsed && (
-            <div className="flex justify-center mb-4">
-              <button
-                type="button"
-                onClick={toggleSidebarCollapse}
-                className="w-9 h-9 rounded-xl text-slate-400 hover:text-blue-600 hover:bg-blue-50 flex items-center justify-center transition cursor-pointer"
-                title="Buka Sidebar"
-              >
-                <PanelLeftOpen className="w-4 h-4" />
-              </button>
-            </div>
-          )}
 
           {/* Nav Items List */}
           <div className="space-y-1">
