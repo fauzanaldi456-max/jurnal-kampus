@@ -4,7 +4,9 @@ import path from 'path';
 
 let dbInstance: Database | null = null;
 let SQL: SqlJsStatic | null = null;
-const DATA_DIR = path.resolve(process.cwd(), 'server', 'data');
+const DATA_DIR = process.env.VERCEL
+  ? path.resolve('/tmp', 'cendraloka_data')
+  : path.resolve(process.cwd(), 'server', 'data');
 const DB_FILE = path.join(DATA_DIR, 'cendraloka.sqlite');
 
 export async function getDb(): Promise<Database> {
