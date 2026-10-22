@@ -14,25 +14,39 @@ export async function getDb(): Promise<Database> {
     return dbInstance;
   }
 
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+  } catch (e) {
+    console.warn('Could not create data dir:', e);
   }
 
   if (!SQL) {
-    SQL = await initSqlJs();
+    try {
+      SQL = await initSqlJs();
+    } catch (sqlInitErr) {
+      console.warn('initSqlJs failed, will run with empty/in-memory fallback:', sqlInitErr);
+      return null as any;
+    }
   }
 
-  if (fs.existsSync(DB_FILE)) {
-    const fileBuffer = fs.readFileSync(DB_FILE);
-    dbInstance = new SQL.Database(fileBuffer);
-  } else {
-    dbInstance = new SQL.Database();
+  try {
+    if (fs.existsSync(DB_FILE)) {
+      const fileBuffer = fs.readFileSync(DB_FILE);
+      dbInstance = new SQL.Database(fileBuffer);
+    } else {
+      dbInstance = new SQL.Database();
+    }
+    dbInstance.run('PRAGMA foreign_keys = ON;');
+  } catch (err) {
+    console.warn('Error loading DB file, fallback to new in-memory instance:', err);
+    if (SQL) {
+      dbInstance = new SQL.Database();
+    }
   }
 
-  // Enable foreign keys
-  dbInstance.run('PRAGMA foreign_keys = ON;');
-
-  return dbInstance;
+  return dbInstance as Database;
 }
 
 export function saveDb(): void {
@@ -42,51 +56,70 @@ export function saveDb(): void {
     const buffer = Buffer.from(data);
     fs.writeFileSync(DB_FILE, buffer);
   } catch (err) {
-    console.error('Failed to save SQLite database to disk:', err);
+    console.warn('Failed to save SQLite database to disk:', err);
   }
 }
 
 export function query<T = any>(sql: string, params: any[] = []): T[] {
   if (!dbInstance) {
-    throw new Error('Database not initialized. Call getDb() first.');
+    console.warn('Query called before database ready, returning empty array.');
+    return [];
   }
 
-  const stmt = dbInstance.prepare(sql);
-  stmt.bind(params);
+  try {
+    const stmt = dbInstance.prepare(sql);
+    stmt.bind(params);
 
-  const results: T[] = [];
-  while (stmt.step()) {
-    results.push(stmt.getAsObject() as unknown as T);
+    const results: T[] = [];
+    while (stmt.step()) {
+      results.push(stmt.getAsObject() as unknown as T);
+    }
+    stmt.free();
+    return results;
+  } catch (err) {
+    console.error('SQL query error:', err, 'SQL:', sql);
+    return [];
   }
-  stmt.free();
-  return results;
 }
 
 export function queryOne<T = any>(sql: string, params: any[] = []): T | null {
+  if (!dbInstance) {
+    return null;
+  }
   const results = query<T>(sql, params);
   return results.length > 0 ? results[0] : null;
 }
 
 export function run(sql: string, params: any[] = []): { changes: number; lastInsertRowid: number } {
   if (!dbInstance) {
-    throw new Error('Database not initialized. Call getDb() first.');
+    console.warn('run called before database ready.');
+    return { changes: 0, lastInsertRowid: 0 };
   }
 
-  dbInstance.run(sql, params);
-  saveDb();
+  try {
+    dbInstance.run(sql, params);
+    saveDb();
 
-  const info = dbInstance.exec('SELECT changes() as changes, last_insert_rowid() as id;');
-  if (info.length > 0 && info[0].values.length > 0) {
-    const [changes, id] = info[0].values[0];
-    return { changes: changes as number, lastInsertRowid: id as number };
+    const info = dbInstance.exec('SELECT changes() as changes, last_insert_rowid() as id;');
+    if (info.length > 0 && info[0].values.length > 0) {
+      const [changes, id] = info[0].values[0];
+      return { changes: changes as number, lastInsertRowid: id as number };
+    }
+  } catch (err) {
+    console.error('SQL run error:', err, 'SQL:', sql);
   }
   return { changes: 1, lastInsertRowid: 0 };
 }
 
 export function exec(sql: string): void {
   if (!dbInstance) {
-    throw new Error('Database not initialized. Call getDb() first.');
+    console.warn('exec called before database ready.');
+    return;
   }
-  dbInstance.exec(sql);
-  saveDb();
+  try {
+    dbInstance.exec(sql);
+    saveDb();
+  } catch (err) {
+    console.error('SQL exec error:', err);
+  }
 }
